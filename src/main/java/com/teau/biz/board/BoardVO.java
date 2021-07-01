@@ -44,6 +44,8 @@ public class BoardVO {
     private int pageNum = 1; // 페이지 번호
     private int amount = 9; // 일반 게시판 페이지당 데이터 갯수
     private int amountR = 4; // 랭킹 게시판 페이지당 데이터 갯수
+    
+    private int boardLikeCount; // 게시판 좋아요 숫자
 
     public int getPageNum() {
         return pageNum;
@@ -141,12 +143,20 @@ public class BoardVO {
         this.replyCount = replyCount;
     }
 
-    @Override
+    public int getBoardLikeCount() {
+		return boardLikeCount;
+	}
+
+	public void setBoardLikeCount(int boardLikeCount) {
+		this.boardLikeCount = boardLikeCount;
+	}
+
+	@Override
     public String toString() {
         return "BoardVO [boardId=" + boardId + ", boardCate=" + boardCate + ", boardWriter=" + boardWriter
                 + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent + ", boardImgm=" + boardImgm
                 + ", uploadFile=" + uploadFile + ", boardRegdate=" + boardRegdate + ", replyCount=" + replyCount
-                + ", pageNum=" + pageNum + ", amount=" + amount + ", amountR=" + amountR + "]";
+                + ", pageNum=" + pageNum + ", amount=" + amount + ", amountR=" + amountR + ", boardLikeCount=" + boardLikeCount + "]";
     }
 
 }

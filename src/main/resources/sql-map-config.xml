@@ -15,13 +15,14 @@
 		<typeAlias type="com.teau.biz.subscribe.SubTeaVO" alias="subTea"></typeAlias>
 		<typeAlias type="com.teau.biz.board.BoardVO" alias="board"></typeAlias>
 		<typeAlias type="com.teau.biz.board.ReplyVO" alias="reply"></typeAlias>
+		<typeAlias type="com.teau.biz.board.BoardLikeVO" alias="boardLike"></typeAlias>		
 		<typeAlias type="com.teau.biz.member.MemberVO" alias="member"></typeAlias>
- 		
  	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
 	<mappers>
 		<mapper resource="mappings/board-mapping.xml" />
+		<mapper resource="mappings/boardLike-mapping.xml" />
 		<mapper resource="mappings/reply-mapping.xml" />
 		<mapper resource="mappings/member-mapping.xml" />
 		<mapper resource="mappings/subscribe-mapping.xml" />

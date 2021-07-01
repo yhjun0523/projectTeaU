@@ -1,7 +1,6 @@
 package com.teau.biz.service.board;
 
 import java.util.List;
-
 import com.teau.biz.board.BoardVO;
 
 public interface BoardService {
@@ -28,11 +27,11 @@ public interface BoardService {
     // 새싹 목록 조회
     List<BoardVO> getBoardListB(BoardVO vo);
 
-    // CRUD 기능의 메소드 구현
-    // 글 등록
-
     // 랭킹 목록 조회
-    List<BoardVO> getBoardListR(BoardVO vo);
+    List<BoardVO> getBoardListR(BoardVO vo);  
+    
+    // 좋아요 갯수 업뎃
+    void updateBoardLikeCount(BoardVO vo) throws Exception;
 
     // 글 갯수
     int totalCnt();

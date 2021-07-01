@@ -199,5 +199,5 @@ public class BoardController {
         model.addAttribute("boardListR", boardService.getBoardListR(vo));
         return "rankBoard";
     }
-
+    
 }

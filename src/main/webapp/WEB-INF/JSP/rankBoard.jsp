@@ -92,8 +92,7 @@
                                     <i class="fas fa-crown" style="color: #ccb801;"></i>
                                     1위
                                     <a href="#!" style="color: black; font-weight: bolder; margin-left: 20px;">악마의 잼</a>
-                                    <a href="#!" style="color:#ff0000; float:right"><i class="fal fa-heart"></i> 1024
-                                      like</a>
+                                    <a href="#!" style="color:#ff0000; float:right"><i class="fal fa-heart"></i> </a>
                                   </button>
                                 </h3>
                                 <div id="faq_collapse1" class="collapse" aria-labelledby="faq_heading1"

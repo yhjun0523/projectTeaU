@@ -47,6 +47,10 @@ public class BoardServiceImpl implements BoardService {
     public List<BoardVO> getBoardListR(BoardVO vo) {
         return boardDAO.getBoardListR(vo);
     }
+    
+    public void updateBoardLikeCount(BoardVO vo) throws Exception {
+        boardDAO.updateBoardLikeCount(vo);
+    }
 
     public int totalCnt() {
         return boardDAO.totalCnt();

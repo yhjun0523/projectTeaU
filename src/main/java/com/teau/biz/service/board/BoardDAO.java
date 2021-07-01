@@ -69,6 +69,18 @@ public class BoardDAO {
         System.out.println("===> Mybatis로  getRBoardListR() 기능 처리");
         return mybatis.selectList("BoardDAO.getRBoardListR", vo);
     }
+    
+  
+    
+    // 하트 갯수 업뎃
+    public void updateBoardLikeCount(BoardVO vo) throws Exception {
+        System.out.println("===> Mybatis로 updateReplyCount 기능 처리");
+        System.out.println(vo.getBoardLikeCount());
+        mybatis.update("BoardDAO.updateBoardLikeCount", vo);
+        System.out.println(vo.getBoardLikeCount());
+
+    }
+   
 
     // 페이징 관련
     public int totalCnt() {

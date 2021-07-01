@@ -4,9 +4,13 @@
       <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
         <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
-          <% String boardId=request.getParameter("boardId"); String boardImgm=request.getParameter("boardImgm");
-            MemberVO member=(MemberVO)request.getAttribute("member"); String memberId="" ; if(member !=null)
-            memberId=member.getMemberId(); %>
+          <% String boardId=request.getParameter("boardId"); 
+          String boardImgm=request.getParameter("boardImgm");
+            MemberVO member=(MemberVO)request.getAttribute("member"); 
+            String memberId="" ; 
+            if(member !=null)
+            memberId=member.getMemberId();
+            %>
             <!doctype html>
             <html lang="en">
 
@@ -75,7 +79,8 @@
                     type: 'POST',
                     url: 'getReviewDetail.do',
                     dataType: 'json',
-                    data: { 'boardId': boardId },
+                    data: { 'boardId': boardId             
+                    },
                     success: function (data) {
 
                       $('#boardId').text(data['board'].boardId);
@@ -85,6 +90,7 @@
                       $('#boardRegdate').text(data['board'].boardRegdate);
                       $('#boardContent').text(data['board'].boardContent);
                       $('#boardImgm').text(data['board'].boardImgm);
+                      
                       if (memberId != null && memberId == data['board'].boardWriter) {
                         $('#btnDel').show();
                         $('#btnUp').show();
@@ -120,40 +126,47 @@
                 // 좋아요 계산 함수, 클릭시 실행
                 function addLikeCnt() {
                 	// 게시물 번호(boardId)를 파라미터로 전달받아 저장합니다.
-                    var boardId = <%=boardId%>;
-                    console.log("heart");
+                    var boardId = <%=boardId%>;		// int 라 '' 표 필요 없음
+                   	var memberId = '<%=memberId%>'; // String 이라 ''표 해주기
+                    
+                    console.log(memberId);
                     
                     if($('#heart').hasClass('fal') == true) {
                     	
                     	 $.ajax({
                              url : 'saveHeart.do',
                              type : 'get',
-                             data : { 'boardId' : boardId},
+                             data : { 
+                            	 'boardId' : boardId,
+                            	 'memberId': memberId		 
+                             },
                              success : function() {
-                                 //페이지 새로고침                         
+                                                     
                                  console.log("하트추가 성공");
                              },
                              error : function() {
                                  alert('서버 에러');
                              }
                          });
-                    	 
+                    	 $("#heart").attr('class','fas fa-heart'); 
                     	 
                     } else {
                     	
                     	$.ajax({
                             url : 'removeHeart.do',
                             type : 'get',
-                            data : { 'boardId' : boardId},
+                            data : { 'boardId' : boardId,
+                            		 'memberId': memberId	
+                            },
                             success : function() {
-                                //페이지 새로고침                         
-                                console.log("하트추가 성공");
+                                            
+                                console.log("하트제거 성공");
                             },
                             error : function() {
                                 alert('서버 에러');
                             }
                         });
-                    	
+                   	 $("#heart").attr('class','fal fa-heart'); 
                     }
 
                 }
@@ -261,6 +274,7 @@
                               </a></li>
                               </c:if>
                               
+                             <!--    class="fas fa-heart"-->
                            
                              
                            

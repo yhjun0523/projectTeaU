@@ -24,7 +24,7 @@ public class MemberDAOMybatis {
 	}
 
 	public void deleteMember(MemberVO vo) {
-		mybatis.delete("MemberDao.deleteMember", vo);
+		mybatis.delete("MemberDAO.deleteMember", vo);
 	}
 
 	public MemberVO getMember(MemberVO vo) {

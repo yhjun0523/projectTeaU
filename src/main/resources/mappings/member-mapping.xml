@@ -4,7 +4,6 @@
 
 <mapper namespace="MemberDAO">	
 	
-	
  	<resultMap type="member" id="memberList">
 		<id property="memberId" column="MEMBER_ID"/>
 		<result property="memberPass" column="MEMBER_PASS"/>

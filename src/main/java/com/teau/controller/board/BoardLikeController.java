@@ -1,5 +1,7 @@
 package com.teau.controller.board;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,21 +28,25 @@ public class BoardLikeController {
 	
 	    @ResponseBody
 	    @RequestMapping(value = "/saveHeart.do")
-	    public String save_heart(@RequestParam("boardId") String boardId, BoardVO vo, Model model) throws Exception {
+	    public String save_heart(@RequestParam Map<String, String> paramMap, BoardVO vo) throws Exception {
 
 	    	BoardLikeVO like = new BoardLikeVO();
-	    	System.out.println("하트 누름 확인");
-	        // 게시물 번호 세팅
-	        like.setBoardId(Integer.parseInt(boardId));
+	    	System.out.println(paramMap);
 	    	
-	        // 좋아요 누른 사람 아이디 세팅 	
-	    	model.addAttribute("memberId",like.getMemberId());
-	    
-	        // +1된 하트 갯수를 담아오기위함
-	        boardService.updateBoardLikeCount(vo);
+	        // 게시물 번호 세팅
+	        like.setBoardId(Integer.parseInt(paramMap.get("boardId")));
 	        
+	        // 회원 이름 세팅
+	        like.setMemberId(paramMap.get("memberId"));
+	        
+	        // 하트 개수 업데이트를 위한 게시물 번호 세팅
+	        vo.setBoardId(Integer.parseInt(paramMap.get("boardId")));
+	       	       	        	        
 	        // 좋아요 객체 전달
 	        boardLikeService.insertBoardLike(like);
+	        
+	        // +1된 하트 갯수를 담아오기위함
+	        boardService.updateBoardLikeCount(vo);
 	        
 	        return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + vo.getBoardImgm();
 	    }
@@ -48,22 +54,26 @@ public class BoardLikeController {
 	    // 랭킹 꽉찬하트 클릭시 하트 해제
 	    @ResponseBody
 	    @RequestMapping(value = "/removeHeart.do")
-	    public String remove_heart(@RequestParam("boardId") String boardId, BoardVO vo, Model model) throws Exception {
+	    public String remove_heart(@RequestParam Map<String, String> paramMap, BoardVO vo) throws Exception {
 	    	
 	    	BoardLikeVO like = new BoardLikeVO();
-	    	System.out.println("하트 제거 확인");
-	    
+	    	System.out.println(paramMap);
+	    	
 	        // 게시물 번호 세팅
-	    	like.setBoardId(Integer.parseInt(boardId));
-
-	    	// 좋아요 누른 사람 아이디 세팅 	
-	    	model.addAttribute("memberId",like.getMemberId());
-
+	        like.setBoardId(Integer.parseInt(paramMap.get("boardId")));
+	        
+	        // 회원 이름 세팅
+	        like.setMemberId(paramMap.get("memberId"));
+	        
+	        // 하트 개수 업데이트를 위한 게시물 번호 세팅
+	        vo.setBoardId(Integer.parseInt(paramMap.get("boardId")));	       	        
+	    	
+	    	// 좋아요 객체 전달
+	    	boardLikeService.deleteBoardLike(like);
+	    	
 	        // -1된 하트 갯수를 담아오기위함
 	    	boardService.updateBoardLikeCount(vo);
 	    	
-	        // 좋아요 객체 전달
-	        boardLikeService.deleteBoardLike(like);
 	        
 	        return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + vo.getBoardImgm();
 	    }

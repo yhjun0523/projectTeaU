@@ -20,6 +20,7 @@ public class BoardLikeDAO {
 	    
 	 public void deleteBoardLike(BoardLikeVO vo) {
 	        System.out.println("===> Mybatis로 deleteBoardLike 기능 처리");
+	        System.out.println("boardLikeDVO"+vo.getBoardId());
 	        mybatis.delete("BoardLikeDAO.deleteBoardLike", vo);
 	    }
 }

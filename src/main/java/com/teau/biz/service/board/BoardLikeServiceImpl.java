@@ -20,6 +20,7 @@ public class BoardLikeServiceImpl implements BoardLikeService{
 	 
 
 	 public void deleteBoardLike(BoardLikeVO vo)  {
+		 	System.out.println("boardLikeService"+vo.getBoardId());
 	        boardLikeDAO.deleteBoardLike(vo);
 	    }
 	    

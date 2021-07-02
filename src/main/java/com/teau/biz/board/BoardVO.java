@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @XmlAccessorType(XmlAccessType.FIELD)
 // 일반게시글(씨앗/새싹)
 public class BoardVO {
-//hahaha
+
     // 게시판 번호
     private int boardId;
 

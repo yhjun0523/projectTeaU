@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,10 +26,10 @@ public class BoardLikeController {
 	 // 랭킹 빈하트 클릭시 하트 저장
 	
 	    @ResponseBody
-	    @RequestMapping(value = "/saveHeart.do")
-	    public String save_heart(@RequestParam Map<String, String> paramMap, BoardVO vo) throws Exception {
+	    @RequestMapping(value = "/heartCreate.do")
+	    public void save_heart(@RequestParam Map<String, String> paramMap, BoardVO vo, BoardLikeVO like) throws Exception {
 
-	    	BoardLikeVO like = new BoardLikeVO();
+	    	
 	    	System.out.println(paramMap);
 	    	
 	        // 게시물 번호 세팅
@@ -48,15 +47,15 @@ public class BoardLikeController {
 	        // +1된 하트 갯수를 담아오기위함
 	        boardService.updateBoardLikeCount(vo);
 	        
-	        return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + vo.getBoardImgm();
+	        System.out.println("현재게시판의좋아요총갯수:+1 "+ vo.getBoardLikeCount());
+	        //return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + vo.getBoardImgm();
 	    }
 
 	    // 랭킹 꽉찬하트 클릭시 하트 해제
 	    @ResponseBody
-	    @RequestMapping(value = "/removeHeart.do")
-	    public String remove_heart(@RequestParam Map<String, String> paramMap, BoardVO vo) throws Exception {
-	    	
-	    	BoardLikeVO like = new BoardLikeVO();
+	    @RequestMapping(value = "/heartDelete.do")
+	    public void remove_heart(@RequestParam Map<String, String> paramMap, BoardVO vo , BoardLikeVO like) throws Exception {
+	 
 	    	System.out.println(paramMap);
 	    	
 	        // 게시물 번호 세팅
@@ -71,11 +70,13 @@ public class BoardLikeController {
 	    	// 좋아요 객체 전달
 	    	boardLikeService.deleteBoardLike(like);
 	    	
-	        // -1된 하트 갯수를 담아오기위함
+
+	    	// -1된 하트 갯수를 담아오기위함
 	    	boardService.updateBoardLikeCount(vo);
-	    	
 	        
-	        return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + vo.getBoardImgm();
+	    	System.out.println("현재게시판의좋아요총갯수:-1 "+ vo.getBoardLikeCount());
+	    	
+	       // return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + vo.getBoardImgm();
 	    }
 
 }

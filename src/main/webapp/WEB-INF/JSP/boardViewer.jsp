@@ -53,10 +53,12 @@
               <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
               
               <script>
+              
+          		var count1 = 0;
                 $(document).ready(function () {
 
                   selectReviewDetail();
-
+                  
                 });
 
 
@@ -79,7 +81,8 @@
                     type: 'POST',
                     url: 'getReviewDetail.do',
                     dataType: 'json',
-                    data: { 'boardId': boardId             
+                    data: { 'boardId': boardId,
+                    		'memberId' : memberId
                     },
                     success: function (data) {
 
@@ -90,6 +93,15 @@
                       $('#boardRegdate').text(data['board'].boardRegdate);
                       $('#boardContent').text(data['board'].boardContent);
                       $('#boardImgm').text(data['board'].boardImgm);
+                      $('#boardLikeCount').text(data['board'].boardLikeCount);
+                      
+                      var likeChk = data['likeChk'];
+                      
+                      if(likeChk == 1) {
+                    	  $("#heart").attr('class','fas fa-heart');
+                      } else {
+                    	  $("#heart").attr('class','fal fa-heart');
+                      }
                       
                       if (memberId != null && memberId == data['board'].boardWriter) {
                         $('#btnDel').show();
@@ -122,54 +134,68 @@
                     }
                   });
                 }
+				
                 
                 // 좋아요 계산 함수, 클릭시 실행
                 function addLikeCnt() {
                 	// 게시물 번호(boardId)를 파라미터로 전달받아 저장합니다.
                     var boardId = <%=boardId%>;		// int 라 '' 표 필요 없음
                    	var memberId = '<%=memberId%>'; // String 이라 ''표 해주기
-                    
+               	
+                  
+               	
                     console.log(memberId);
                     
-                    if($('#heart').hasClass('fal') == true) {
-                    	
-                    	 $.ajax({
-                             url : 'saveHeart.do',
-                             type : 'get',
-                             data : { 
-                            	 'boardId' : boardId,
-                            	 'memberId': memberId		 
-                             },
-                             success : function() {
-                                                     
-                                 console.log("하트추가 성공");
-                             },
-                             error : function() {
-                                 alert('서버 에러');
-                             }
-                         });
-                    	 $("#heart").attr('class','fas fa-heart'); 
-                    	 
-                    } else {
-                    	
-                    	$.ajax({
-                            url : 'removeHeart.do',
-                            type : 'get',
-                            data : { 'boardId' : boardId,
-                            		 'memberId': memberId	
-                            },
-                            success : function() {
-                                            
-                                console.log("하트제거 성공");
-                            },
-                            error : function() {
-                                alert('서버 에러');
-                            }
-                        });
-                   	 $("#heart").attr('class','fal fa-heart'); 
-                    }
-
+                
+	                    if($('#heart').hasClass('fal') == true) {
+	 	
+	                    	 $.ajax({
+	                             url : 'heartCreate.do',
+	                             type : 'get',
+	                             data : { 
+	                            	 'boardId' : boardId,
+	                            	 'memberId': memberId
+	                             },
+	                             success : function() {
+	                                                     
+	                                 console.log("하트추가 성공");
+	                               
+	                                 selectReviewDetail();
+	                             },
+	                             error : function() {
+	                                 alert('서버 에러');
+	                             }
+	                         });
+	                    	 $("#heart").attr('class','fas fa-heart'); 
+	                    	 $(this).html("");
+	                    	 
+	                    } else {
+	                    	
+	                    	$.ajax({
+	                            url : 'heartDelete.do',
+	                            type : 'get',
+	                            data : { 'boardId' : boardId,
+	                            		 'memberId': memberId
+	                            },
+	                            success : function() {
+	                                            
+	                                console.log("하트제거 성공");
+	                               
+	                                selectReviewDetail();
+	                            },
+	                            error : function() {
+	                                alert('서버 에러');
+	                            }
+	                        });
+	                   	 $("#heart").attr('class','fal fa-heart'); 
+	                    }
+	
+	                 
+                	
                 }
+                
+                
+                
                 <%-- $("#aHeart").click(function() {
 
                     // 게시물 번호(boardId)를 파라미터로 전달받아 저장합니다.
@@ -264,19 +290,23 @@
                               
                               <c:if test="${member.memberId == null }">
                                 <li><a href="login.do" style="color:#ff0000; float:right">
-                              <i class="fal fa-heart"></i><span id="boardLikeCount"></span>like                           
+                              <i class="fal fa-heart"></i>
+                              <span id="boardLikeCount"></span>&nbsp;&nbsp;like                           
                               </a></li>
                               </c:if>
                               
                               <c:if test="${member.memberId != null }">
                                 <li><a style="color:#ff0000; float:right" id="boardheart">
-                              <i onclick="addLikeCnt();" style="cursor: pointer;" class="fal fa-heart" id="heart"></i><span id="boardLikeCount"></span>like
+                              <i onclick="addLikeCnt();" style="cursor: pointer;" class="fal fa-heart" id="heart"></i>
+                              <span id="boardLikeCount"></span>&nbsp;&nbsp;like
                               </a></li>
                               </c:if>
                               
+                             
                              <!--    class="fas fa-heart"-->
                            
-                             
+                              <i onclick="addLikeCnt();" style="cursor: pointer;" class="fas fa-heart" id="heart"></i>
+                              <i onclick="addLikeCnt();" style="cursor: pointer;" class="fal fa-heart" id="heart"></i>
                            
 
                             </ul>

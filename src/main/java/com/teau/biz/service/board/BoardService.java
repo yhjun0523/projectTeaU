@@ -1,6 +1,8 @@
 package com.teau.biz.service.board;
 
 import java.util.List;
+import java.util.Map;
+
 import com.teau.biz.board.BoardVO;
 
 public interface BoardService {
@@ -39,5 +41,7 @@ public interface BoardService {
     int totalCntB();
 
     int totalCntR();
+    
+    int getLikeChk(Map<String, String> paramMap);
 
 }

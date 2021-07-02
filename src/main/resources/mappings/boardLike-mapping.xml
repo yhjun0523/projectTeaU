@@ -19,7 +19,8 @@
 	<delete id="deleteBoardLike">
 		<![CDATA[
 		DELETE BOARDLIKE
-		WHERE BOARDLIKE_ID = #{boardLikeId}
+		WHERE BOARD_ID = #{boardId}
+		AND MEMBER_ID= #{memberId}
 	]]>
 	</delete>
 

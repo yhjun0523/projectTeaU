@@ -1,6 +1,7 @@
 package com.teau.biz.service.board;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,5 +64,9 @@ public class BoardServiceImpl implements BoardService {
     public int totalCntR() {
         return boardDAO.totalCntR();
     }
-
+    
+    @Override
+    public int getLikeChk(Map<String, String> paramMap) {
+    	return boardDAO.getLikeChk(paramMap);
+    }
 }

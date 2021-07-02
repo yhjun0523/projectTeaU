@@ -150,14 +150,21 @@ public class BoardController {
     // 글 상세 조회
     @RequestMapping(value = "/getReviewDetail.do", produces = "application/json; charset=utf8")
     @ResponseBody
-    public String getReviewDetail(BoardVO vo, @RequestParam("boardId") String boardId) throws JsonProcessingException {
+    public String getReviewDetail(BoardVO vo, @RequestParam("boardId") String boardId, @RequestParam("memberId") String memberId) throws JsonProcessingException {
         System.out.println(boardId);
-
+        Map<String, String> paramMap = new HashMap<String, String>();
+        
+        paramMap.put("boardId", boardId);
+        paramMap.put("memberId", memberId);
+        
         vo.setBoardId(Integer.parseInt(boardId));
         Map<String, Object> hashmap = new HashMap<String, Object>();
         BoardVO board = boardService.getBoard(vo);
+        int likeChk = boardService.getLikeChk(paramMap);
         hashmap.put("board", board);
-        ObjectMapper mapper = new ObjectMapper();
+        hashmap.put("likeChk", likeChk);
+        
+        ObjectMapper mapper = new ObjectMapper(); //jsonview
         String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(hashmap);
         return json;
     }

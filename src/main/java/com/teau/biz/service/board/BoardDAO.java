@@ -1,6 +1,7 @@
 package com.teau.biz.service.board;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,9 +76,9 @@ public class BoardDAO {
     // 하트 갯수 업뎃
     public void updateBoardLikeCount(BoardVO vo) throws Exception {
         System.out.println("===> Mybatis로 updateReplyCount 기능 처리");
-        System.out.println(vo.getBoardLikeCount());
+        System.out.println("업뎃전 좋아요갯수: "+vo.getBoardLikeCount());
         mybatis.update("BoardDAO.updateBoardLikeCount", vo);
-        System.out.println(vo.getBoardLikeCount());
+        System.out.println("업뎃후 좋아요갯수: "+vo.getBoardLikeCount());
 
     }
    
@@ -97,5 +98,8 @@ public class BoardDAO {
         System.out.println("===> Mybatis로 totalCntB");
         return mybatis.selectOne("BoardDAO.getTotalCntR");
     }
-
+    
+    public int getLikeChk(Map<String, String> paramMap) {
+    	return mybatis.selectOne("BoardDAO.getLikeChk", paramMap);
+    }
 }

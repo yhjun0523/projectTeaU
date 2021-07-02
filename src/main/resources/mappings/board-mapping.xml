@@ -12,6 +12,7 @@
 		<result property="boardImgm" column="BOARD_IMGM" />	
 		<result property="boardRegdate" column="BOARD_REGDATE" />
         <result property="replyCount" column="REPLY_COUNT" />
+        <result property="boardLikeCount" column="BOARD_LIKE_COUNT" />
 	</resultMap>
 
 
@@ -45,7 +46,7 @@
 	<update id="updateBoardLikeCount">
     	<![CDATA[
 		UPDATE BOARD 
-		SET BOARD_LIKE = (SELECT COUNT(BOARDLIKE_ID) FROM BOARDLIKE WHERE BOARD_ID = #{boardId})
+		SET BOARD_LIKE_COUNT = (SELECT COUNT(BOARDLIKE_ID) FROM BOARDLIKE WHERE BOARD_ID = #{boardId})
 		WHERE BOARD_ID = #{boardId}
 		]]>
 	</update>
@@ -129,5 +130,11 @@
         FROM BOARD
         WHERE BOARD_CATE = 3
     </select>
-
+	
+	<select id="getLikeChk" resultType="int">
+		SELECT COUNT(*)
+		FROM BOARDLIKE
+		WHERE BOARD_ID = #{boardId}
+		AND MEMBER_ID = #{memberId}
+	</select>
 </mapper>

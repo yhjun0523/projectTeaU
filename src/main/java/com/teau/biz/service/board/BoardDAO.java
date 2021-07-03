@@ -102,4 +102,9 @@ public class BoardDAO {
     public int getLikeChk(Map<String, String> paramMap) {
     	return mybatis.selectOne("BoardDAO.getLikeChk", paramMap);
     }
+    
+    public List<BoardVO> getOrderList(BoardVO vo) {
+        System.out.println("===> Mybatis로 getOrderList");
+        return mybatis.selectList("BoardDAO.getOrderList",vo);
+    }
 }

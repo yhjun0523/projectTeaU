@@ -84,25 +84,42 @@
                         <div class="col-lg-10">
                           <div class="faq_accordion" id="faq_accordion">
 
-                            <c:if test="true">
+                            <c:forEach items="${boardOrderList}" var="board" begin="0" end="2" varStatus="status">
                               <div class="accordion-item wow fadeInUp" data-wow-delay=".1s">
                                 <h3 class="accordion-header" id="faq_heading1">
                                   <button type="button" data-bs-toggle="collapse" data-bs-target="#faq_collapse1"
                                     aria-expanded="false" aria-controls="faq_collapse1">
+                                   
+                                    <c:choose>
+                                    <c:when test="${status.count eq 1 }">
                                     <i class="fas fa-crown" style="color: #ccb801;"></i>
-                                    1위
-                                    <a href="#!" style="color: black; font-weight: bolder; margin-left: 20px;">악마의 잼</a>
-                                    <a href="#!" style="color:#ff0000; float:right"><i class="fal fa-heart"></i> </a>
+                                    </c:when>
+                                    <c:when test="${status.count eq 2 }">
+                                    <i class="fas fa-crown" style="color: #888888;"></i>
+                                    </c:when>
+                                    <c:when test="${status.count eq 3 }">
+                                    <i class="fas fa-crown" style="color: #b4781e;"></i>
+                                    </c:when>
+                                    </c:choose>                            
+                                    
+                                    <c:out value="${status.count}" />
+                                    <a href="#!" style="color: black; font-weight: bolder; margin-left: 20px;">${board.boardTitle}</a>
+                                    <i style="cursor: pointer;" class="fal fa-heart"></i>
+                          		 	 ${board.boardLikeCount } &nbsp;&nbsp;like  
                                   </button>
                                 </h3>
-                                <div id="faq_collapse1" class="collapse" aria-labelledby="faq_heading1"
-                                  data-bs-parent="#faq_accordion">
+                        
+                                
+                                <div id="faq_collapse1" class="collapse" aria-labelledby="faq_heading1" >        
                                   <div class="accordion-body pt-0">
-                                    <img src="./assets/images/menu/img_01.png">
+                                  <a href="boardViewer.do?boardId=${board.boardId }&boardImgm=${board.boardImgm}">           
+                                    <img src="resource/imgUpload/${board.boardImgm }" alt="image_not_found"
+                                    style="height:100px; width:400px;" ></a>
                                   </div>
                                 </div>
+                                
                               </div>
-                            </c:if>
+                             </c:forEach>
 
                             <!-- <div class="accordion-item wow fadeInUp" data-wow-delay=".1s">
                               <h3 class="accordion-header" id="faq_heading2">
@@ -171,6 +188,8 @@
                                 <ul class="post_meta ul_li wow fadeInUp" data-wow-delay=".1s">
                                   <li><a href="#!"><i class="fal fa-user"></i>${board.boardWriter }</a></li>
                                   <li><i class="fal fa-calendar-alt"></i>${board.boardRegdate }</li>
+                                  <li><i style="cursor: pointer;" class="fal fa-heart"></i>
+                          		 	 ${board.boardLikeCount } &nbsp;&nbsp;like  </li>
                                 </ul>
 
                                 <p class="wow fadeInUp" data-wow-delay=".1s">

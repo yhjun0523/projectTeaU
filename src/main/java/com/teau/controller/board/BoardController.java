@@ -204,6 +204,7 @@ public class BoardController {
         // Model 정보 저장
         model.addAttribute("pagingR", new PageMakerR(vo, total));
         model.addAttribute("boardListR", boardService.getBoardListR(vo));
+        model.addAttribute("boardOrderList", boardService.getOrderList(vo));
         return "rankBoard";
     }
     

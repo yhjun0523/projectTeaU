@@ -69,4 +69,8 @@ public class BoardServiceImpl implements BoardService {
     public int getLikeChk(Map<String, String> paramMap) {
     	return boardDAO.getLikeChk(paramMap);
     }
+    
+    public List<BoardVO> getOrderList(BoardVO vo) {
+        return boardDAO.getOrderList(vo);
+    }
 }

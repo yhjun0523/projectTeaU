@@ -113,8 +113,7 @@
                                   href="boardViewer.do?boardId=${board.boardId }&boardImgm=${board.boardImgm}">${board.boardTitle}
 
                                   <c:if test="${board.replyCount ne 0}">
-                                    <small><b>[&nbsp;
-                                        <c:out value="${board.replyCount}" />&nbsp;]
+                                    <small><b>[&nbsp;<c:out value="${board.replyCount}" />&nbsp;]
                                       </b></small>
                                   </c:if>
 
@@ -124,9 +123,7 @@
                                 <li><i class="fal fa-calendar-alt"></i>${board.boardRegdate }</li>
                               </ul>
 
-                              <p class="wow fadeInUp" data-wow-delay=".1s">
-                                ${board.boardContent }
-                              </p>
+                             
                             </div>
                           </div>
                         </div>

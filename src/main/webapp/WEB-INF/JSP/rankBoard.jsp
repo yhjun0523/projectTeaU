@@ -192,9 +192,7 @@
                           		 	 ${board.boardLikeCount } &nbsp;&nbsp;like  </li>
                                 </ul>
 
-                                <p class="wow fadeInUp" data-wow-delay=".1s">
-                                  ${board.boardContent }
-                                </p>
+                                
                               </div>
                             </div>
                           </div>

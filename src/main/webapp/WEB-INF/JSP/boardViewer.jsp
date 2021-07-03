@@ -121,7 +121,7 @@
                         $('#goListB').show();
                         $('#goListR').hide();
                         $('#boardheart').hide();
-                      } else {
+                      } else if(data['board'].boardCate == 3){
                         $('#goListO').hide();
                         $('#goListB').hide();
                         $('#goListR').show();
@@ -167,7 +167,7 @@
 	                             }
 	                         });
 	                    	 $("#heart").attr('class','fas fa-heart'); 
-	                    	 $(this).html("");
+	                    
 	                    	 
 	                    } else {
 	                    	
@@ -288,7 +288,7 @@
                               <li><a href="#!"><i class="fal fa-user"></i><span id="boardWriter"></span></a></li>
                               <li><i class="fal fa-calendar-alt"></i><span id="boardRegdate"></span></li>
                               
-                              <c:if test="${member.memberId == null }">
+                              <c:if test="${member.memberId == null and board.boardCate==3 }">
                                 <li><a href="login.do" style="color:#ff0000; float:right">
                               <i class="fal fa-heart"></i>
                               <span id="boardLikeCount"></span>&nbsp;&nbsp;like                           
@@ -301,14 +301,7 @@
                               <span id="boardLikeCount"></span>&nbsp;&nbsp;like
                               </a></li>
                               </c:if>
-                              
-                             
-                             <!--    class="fas fa-heart"-->
-                           
-                              <i onclick="addLikeCnt();" style="cursor: pointer;" class="fas fa-heart" id="heart"></i>
-                              <i onclick="addLikeCnt();" style="cursor: pointer;" class="fal fa-heart" id="heart"></i>
-                           
-
+ 
                             </ul>
                            
                             <p class="wow fadeInUp" data-wow-delay=".1s">

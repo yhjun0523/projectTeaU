@@ -44,7 +44,8 @@ public interface BoardService {
     
     int getLikeChk(Map<String, String> paramMap);
     
-    // 랭킹 순위 조회
+ // 랭킹 순위 조회
     List<BoardVO> getOrderList(BoardVO vo);  
+
 
 }

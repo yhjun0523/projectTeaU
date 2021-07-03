@@ -26,7 +26,7 @@
    
    <!-- 업로드 패스 설정 -->
 	<bean class="java.lang.String" id="uploadPath">
-		<constructor-arg value="F:/eclipse-workspace/TeaU/src/main/webapp/resource/imgUpload" />
+		<constructor-arg value="C:/DEV2/workspace/TeaU/src/main/webapp/resource/imgUpload" />
 
 	</bean>
 

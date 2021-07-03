@@ -43,24 +43,24 @@
                   <h3 class="footer_widget_title text-uppercase" id="footerc">RECENT MAGAZINE</h3>
     
                   <div class="recent_post" >
-                    <a class="item_image" href="magazine.html">
+                    <a class="item_image" href="magazine.do">
                       <img src="assets/images/blog/2.jpg" alt="image_not_found"  style="width: 75px; height: 75px;" > 
                     </a>
                     <div class="item_content">
                       <h4 class="item_title">
-                        <a href="magazine.html" style="font-size: 11px;">차를 맛있게 마시는 방법들!</a>
+                        <a href="magazine.do" style="font-size: 11px;">차를 맛있게 마시는 방법들!</a>
                       </h4>
                       <span class="post_date text-uppercase">December 30 - 2021</span>
                     </div>
                   </div>
     
                   <div class="recent_post">
-                    <a class="item_image" href="magazine.html">
+                    <a class="item_image" href="magazine.do">
                       <img src="assets/images/blog/1.jpg" alt="image_not_found"  style="width: 75px; height: 75px;">
                     </a>
                     <div class="item_content">
                       <h4 class="item_title">
-                        <a href="magazine.html" style="font-size: 11px;">블렌딩이란?</a>
+                        <a href="magazine.do" style="font-size: 11px;">블렌딩이란?</a>
                       </h4>
                       <span class="post_date text-uppercase">Nobember 30 - 2021</span>
                     </div>

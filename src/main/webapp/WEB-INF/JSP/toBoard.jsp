@@ -118,6 +118,10 @@
                       <div class="container">
                         <div class="row">
                           <div class="col text-center">
+                          
+                       <!--    컨트롤러의 list.do로 맵핑되고, user_id, title, content값을 매개값으로 넘긴다.					
+						검색옵션은 작성자, 제목, 내용, 작성자+제목+내용으로 검색할 수 있도록 한다. -->
+         
 
                             <c:if test="${member.memberId == null }">
                               <a class="btn btn_primary text-uppercase" href="login.do"

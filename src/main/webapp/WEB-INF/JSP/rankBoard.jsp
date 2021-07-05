@@ -104,8 +104,7 @@
                                     
                                     <c:out value="${status.count}" />
                                     <a href="#!" style="color: black; font-weight: bolder; margin-left: 20px;">${board.boardTitle}</a>
-                                    <i style="cursor: pointer;" class="fal fa-heart"></i>
-                          		 	 ${board.boardLikeCount } &nbsp;&nbsp;like  
+                                   	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vote: ${board.boardLikeCount } like  
                                   </button>
                                 </h3>
                         
@@ -188,8 +187,7 @@
                                 <ul class="post_meta ul_li wow fadeInUp" data-wow-delay=".1s">
                                   <li><a href="#!"><i class="fal fa-user"></i>${board.boardWriter }</a></li>
                                   <li><i class="fal fa-calendar-alt"></i>${board.boardRegdate }</li>
-                                  <li><i style="cursor: pointer;" class="fal fa-heart"></i>
-                          		 	 ${board.boardLikeCount } &nbsp;&nbsp;like  </li>
+                                  <li>vote: ${board.boardLikeCount } like  </li>
                                 </ul>
 
                                 

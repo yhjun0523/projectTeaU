@@ -96,6 +96,17 @@
                       $('#boardLikeCount').text(data['board'].boardLikeCount);
                       
                       var likeChk = data['likeChk'];
+                      var boardCate = data['board'].boardCate;
+                      
+                      if(boardCate == '3') {
+                    	  $('#boardheart').show();
+                    	  if(memberId == null || memberId == '' ){
+                    		  $("#heart").removeAttr("onclick");	// 온클릭 속성을 삭제
+                    		  $("#heart").attr("onclick", "Login();"); // 온클릭 속성을 다시부여 
+                    	  }
+                      } else {
+                    	  $('#boardheart').hide();
+                      }
                       
                       if(likeChk == 1) {
                     	  $("#heart").attr('class','fas fa-heart');
@@ -134,7 +145,11 @@
                     }
                   });
                 }
-				
+                
+                function Login(){
+              	  window.location.href="<c:url value='login.do' />";
+              	
+                }
                 
                 // 좋아요 계산 함수, 클릭시 실행
                 function addLikeCnt() {
@@ -287,20 +302,12 @@
                             <ul class="post_meta ul_li wow fadeInUp" data-wow-delay=".1s">
                               <li><a href="#!"><i class="fal fa-user"></i><span id="boardWriter"></span></a></li>
                               <li><i class="fal fa-calendar-alt"></i><span id="boardRegdate"></span></li>
-                              
-                              <c:if test="${member.memberId == null and board.boardCate==3 }">
-                                <li><a href="login.do" style="color:#ff0000; float:right">
-                              <i class="fal fa-heart"></i>
-                              <span id="boardLikeCount"></span>&nbsp;&nbsp;like                           
-                              </a></li>
-                              </c:if>
-                              
-                              <c:if test="${member.memberId != null }">
-                                <li><a style="color:#ff0000; float:right" id="boardheart">
+        
+                              <li><a style="color:#ff0000; float:right" id="boardheart">
                               <i onclick="addLikeCnt();" style="cursor: pointer;" class="fal fa-heart" id="heart"></i>
-                              <span id="boardLikeCount"></span>&nbsp;&nbsp;like
-                              </a></li>
-                              </c:if>
+                              <span id="boardLikeCount"></span>&nbsp;&nbsp;like  </a>  
+                              </li>
+                             
  
                             </ul>
                            

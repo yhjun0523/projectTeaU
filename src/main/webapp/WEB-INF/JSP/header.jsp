@@ -126,7 +126,7 @@
                         </a>
                       </li>
                       <li>
-                        <a class="nav-link" href="tea_finder_detail.do">Tea finder</a>
+                        <a class="nav-link" href="tea_finder.do">Tea finder</a>
                       </li>
                     </ul>
                   </div>

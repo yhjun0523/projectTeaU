@@ -40,6 +40,24 @@
 <body>
   <jsp:include page="header.jsp"></jsp:include>
   <!-- body_wrap - start -->
+  
+        <section class="breadcrumb_section text-uppercase" style="background-image: url(assets/images/img/banner02.png);">
+        <div class="container">
+          <h1 class="page_title text-white wow fadeInUp"><span style="color: black;">Magazine</span></h1>
+          <ul class="breadcrumb_nav ul_li wow fadeInUp" data-wow-delay=".2s">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li>magazine</li>
+          </ul>
+        </div>
+        <div class="breadcrumb_icon_wrap">
+          <div class="container">
+            <div class="breadcrumb_icon wow fadeInUp" data-wow-delay=".3s">
+              <img src="assets/images/feature/11.jpg" alt="icon_not_found" width="50px">
+              <span class="bg_shape"></span>
+            </div>
+          </div>
+        </div>
+      </section>
  
 
       <!-- blog_section - start

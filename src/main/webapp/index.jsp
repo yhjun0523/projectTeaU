@@ -104,7 +104,7 @@
                   </ul>
                   <ul class="btns_group ul_li_center" data-wow-delay=".6s">
                     <li>
-                      <a class="btn btn_primary" href="tea_finder_detail.do">티 파인더</a>
+                      <a class="btn btn_primary" href="tea_finder.do">티 파인더</a>
                     </li>
                     <li>
                     </li>

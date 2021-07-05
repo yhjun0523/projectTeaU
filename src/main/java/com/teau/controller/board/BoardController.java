@@ -95,14 +95,6 @@ public class BoardController {
         System.out.println("글 수정 페이지 이동");
         return "boardUpdate";
     }
-    
-    //////////// 임시 페이지
-    // 매거진 화면으로 이동
-    @RequestMapping("/magazine.do")
-    public String magazine() {
-        System.out.println("글 수정 페이지 이동");
-        return "magazine";
-    }
 
     // 글 수정 처리
     @RequestMapping("/boardUpdate.do")
@@ -215,5 +207,6 @@ public class BoardController {
         model.addAttribute("boardOrderList", boardService.getOrderList(vo));
         return "rankBoard";
     }
+    
     
 }

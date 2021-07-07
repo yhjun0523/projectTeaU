@@ -232,6 +232,7 @@
       .ul_li_center {
       
       display: inline;
+      margin-left: 0px;
       
       }
       
@@ -346,7 +347,7 @@
 	            	  $('#modalResult').html();
 	            	  var html = '';
 	            	  
-	            	  
+	            	  	if(data['teaFinderList'].length!=0){
 			            	  for(var i = 0; i < data['teaFinderList'].length; i++) {
 			            		  console.log(1111);
 			            		  if(i == 0) {
@@ -383,7 +384,10 @@
 			            			  html += '</div>';
 			            		  }
 			            	 }
-	            	  
+            	  		} else {
+	                           alert("현재 등록되지 않은 태그 리스트 입니다. 다른 태그를 골라주세요!");
+	                           window.location.href = "tea_finder.do";
+	                      }
 	            	  $('#modalResult').append(html);
 	            	  
 				      $("#popup").css('display', 'flex').hide().fadeIn();

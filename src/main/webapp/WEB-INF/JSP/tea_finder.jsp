@@ -419,7 +419,7 @@
   
       <section class="breadcrumb_section text-uppercase" style="background-image: url(assets/images/img/banner02.png);">
         <div class="container">
-          <h1 class="page_title text-white wow fadeInUp"><span style="color: black;">Tea finder</span></h1>
+          <h1 class="page_title text-white wow fadeInUp"><span style="color: white;">Tea finder</span></h1>
         </div>
         <div class="breadcrumb_icon_wrap">
           <div class="container">

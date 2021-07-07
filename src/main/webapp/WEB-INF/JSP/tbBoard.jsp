@@ -73,24 +73,25 @@
           <body>
             <%@include file="header.jsp" %>
 
-              <!-- breadcrumb_section - start
-        ================================================== -->
-              <section class="breadcrumb_section0919 text-uppercase"
-                style="background-position: 70%; background-image: url(./assets/images/logo/board8.png);">
+<!-- breadcrumb_section - start
+            ================================================== -->
+            <section class="breadcrumb_section0919 text-uppercase"
+                style="background-position: 70% 40%; background-image: url(./assets/images/breadcrumb/magazine.jpg);">
                 <div class="container">
-                  <h1 class="page_title text-white wow fadeInUp" data-wow-delay=".1s">새싹 &#38; 나무 리뷰</h1>
+                    <h1 class="page_title wow text-white fadeInUp" data-wow-delay=".1s">새싹 &#38; 나무 리뷰</h1>
                 </div>
                 <div class="breadcrumb_icon_wrap">
-                  <div class="container">
-                    <div class="breadcrumb_icon wow fadeInUp" data-wow-delay=".3s">
-                          <img src="assets/images/feature/11.jpg" alt="icon_not_found" width="50px">
-                      <span class="bg_shape"></span>
+                    <div class="container">
+                        <div class="breadcrumb_icon wow fadeInUp" data-wow-delay=".3s">
+                            <img src="assets/images/feature/11.jpg" alt="icon_not_found" width="50px">
+                            <span class="bg_shape"></span>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </section>
-              <!-- breadcrumb_section - end
-        ================================================== -->
+            </section>
+            <!-- breadcrumb_section - end
+            ==================================================
+
 
               <!-- details_section - start
         ================================================== -->
@@ -101,12 +102,12 @@
                     <div class="row justify-content-md-right justify-content-sm-right">
 
                       <c:forEach items="${boardListB }" var="board">
-                        <div class="col-lg-4 col-md-6" style="padding-bottom: 20px;">
+                        <div class="col-lg-4 col-md-6" style="padding-bottom: 40px;">
                           <div class="details_content mb-0">
                             <div class="details_image wow fadeInUp" data-wow-delay=".1s">
                               <a href="boardViewer.do?boardId=${board.boardId }&boardImgm=${board.boardImgm}">
                                 <img src="resource/imgUpload/${board.boardImgm }" alt="image_not_found"
-                                  style="height:300px">
+                                  style="height:300px; width: 1000px">
                               </a>
                             </div>
                             <div class="wrap_space card" style="height: 200px">

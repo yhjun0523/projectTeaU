@@ -73,6 +73,25 @@
           <body>
             <%@include file="header.jsp" %>
 
+<!-- breadcrumb_section - start
+            ================================================== -->
+            <section class="breadcrumb_section0919 text-uppercase"
+                style="background-position: 70% 40%; background-image: url(./assets/images/breadcrumb/magazine.jpg);">
+                <div class="container">
+                    <h1 class="page_title wow text-white fadeInUp" data-wow-delay=".1s">씨앗 리뷰</h1>
+                </div>
+                <div class="breadcrumb_icon_wrap">
+                    <div class="container">
+                        <div class="breadcrumb_icon wow fadeInUp" data-wow-delay=".3s">
+                            <img src="assets/images/feature/11.jpg" alt="icon_not_found" width="50px">
+                            <span class="bg_shape"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- breadcrumb_section - end
+            ==================================================
+
               <!-- details_section - start
         ================================================== -->
               <form action="toBoard.do" method="post">
@@ -85,7 +104,7 @@
                             <div class="details_image wow fadeInUp" data-wow-delay=".1s">
                               <a href="boardViewer.do?boardId=${board.boardId }&boardImgm=${board.boardImgm}">
                                 <img src="resource/imgUpload/${board.boardImgm }" alt="image_not_found"
-                                  style="height:300px">
+                                  style="height:300px; width: 1000px">
                               </a>
                             </div>
                             <div class="wrap_space card" style="height: 200px">

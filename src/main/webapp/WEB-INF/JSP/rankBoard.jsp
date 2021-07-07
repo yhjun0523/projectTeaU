@@ -173,7 +173,7 @@
                             <div class="details_image wow fadeInUp" data-wow-delay=".1s">
                               <a href="boardViewer.do?boardId=${board.boardId }&boardImgm=${board.boardImgm}">
                                 <img src="resource/imgUpload/${board.boardImgm }" alt="image_not_found"
-                                  style="height:300px">
+                                  style="height:300px; width: 1000px">
                               </a>
                             </div>
                             <div class="wrap_space card" style="height: 200px">

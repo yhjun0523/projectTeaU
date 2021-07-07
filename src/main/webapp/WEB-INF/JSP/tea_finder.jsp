@@ -61,24 +61,25 @@
       }
 
       #finder_detail01 .img-responsive {
-        margin-left: 20%;
+        /* margin-left: 20%; */
       }
 
       #finder_detail02 .img-responsive,
       #finder_detail03 .img-responsive {
-        margin-left: 29%;
+        /* margin-left: 29%; */
       }
 
 
       #finder_detail04 .ul_li_center {
-        margin-left: 40%;
+        margin-left: 0px;
+        margin-right: 0px;
         margin-top: 50px;
         margin-bottom: 30px;
 
       }
 
       #finder_detail05 .img-responsive {
-        margin-left: 13%;
+        /* margin-left: 13%; */
       }
 
       #finder_detail05 .finder_choice {
@@ -217,6 +218,22 @@
           
       }
       
+      .finder_content {
+      text-align: center;
+      
+      }
+      
+      .contact_form {
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+      
+      }
+      
+      .ul_li_center {
+      
+      display: inline;
+      
+      }
       
       
    
@@ -403,10 +420,6 @@
       <section class="breadcrumb_section text-uppercase" style="background-image: url(assets/images/img/banner02.png);">
         <div class="container">
           <h1 class="page_title text-white wow fadeInUp"><span style="color: black;">Tea finder</span></h1>
-          <ul class="breadcrumb_nav ul_li wow fadeInUp" data-wow-delay=".2s">
-            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-            <li>my tea finder</li>
-          </ul>
         </div>
         <div class="breadcrumb_icon_wrap">
           <div class="container">
@@ -428,7 +441,7 @@
 	  
 	  <!-- <form action="teaFind.do" method="post"> -->
       <!-- 티 파인더 선택지 -->
-      <section class="contact_section sec_ptb_120 bg_default_gray">
+      <section class="contact_section sec_ptb_120">
       <form id="finderForm" method="get">
       
          <!-- 1번 질문  -->
@@ -545,7 +558,7 @@
                   <div class="row">
 
                     <h4>카페인 취향</h4>
-                    <div class="finder_choice col-md-6 col-xs-6 ">
+                    <div class="finder_choice col-md-6 col-xs-6">
                       <img src="resource/imgUpload/finder/caffeine.png" class="img-responsive img-radio ul_li_center"
                         style="height: 200px; ">
                          <label class="btn btn-primary question4" style="width:100%;">

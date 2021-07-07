@@ -5,7 +5,7 @@
 <!-- footer_section - start
       ================================================== -->
       <footer class="footer_section">
-        <div class="footer_widget_area" >
+        <div class="footer_widget_area" style="background-color: white;">
           <div class="container">
           
     
@@ -32,8 +32,8 @@
                 <div class="footer_widget footer_contact wow fadeInUp" data-wow-delay=".2s">
                   <h3 class="footer_widget_title text-uppercase">Contact us</h3>
                   <ul class="ul_li_block">
-                    <li><strong class="text-uppercase">Adress:</strong> 8638 Amarica Stranfod Mailbon Star</li>
-                    <li><strong class="text-uppercase">Mail:</strong> Israfilsupol836@gmail.com</li>
+                    <li style="line-height: 20px;"><strong class="text-uppercase">Adress :</strong> 서울시 강남구 강남대로 94길 20, 삼오빌딩 8층</li>
+                    <li><strong class="text-uppercase">Mail :</strong> admin@teau.com</li>
                   </ul>
                 </div>
               </div>
@@ -49,7 +49,7 @@
                       <h4 class="item_title">
                         <a href="magazine.html" style="font-size: 11px;">차를 맛있게 마시는 방법들!</a>
                       </h4>
-                      <span class="post_date text-uppercase">December 30 - 2021</span>
+                      <span class="post_date text-uppercase">May 25 - 2021</span>
                     </div>
                   </div>
     
@@ -61,7 +61,7 @@
                       <h4 class="item_title">
                         <a href="magazine.html" style="font-size: 11px;">블렌딩이란?</a>
                       </h4>
-                      <span class="post_date text-uppercase">Nobember 30 - 2021</span>
+                      <span class="post_date text-uppercase">June 30 - 2021</span>
                     </div>
                   </div>
     
@@ -74,8 +74,7 @@
     
         <div class="footer_bottom text-center">
           <div class="container">
-            <p class="copyright_text mb-0">Copyright@ 2021 Desing by <a
-                href="https://themeforest.net/user/xpressrow">Girl's Main</a></p>
+            <p class="copyright_text mb-0">Copyright@ 2021 <a style="color:#fd6c44; font-weight: bold">TeaU</a></p>
           </div>
         </div>
       </footer>

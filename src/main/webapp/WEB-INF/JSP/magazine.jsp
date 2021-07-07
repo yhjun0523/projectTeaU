@@ -33,6 +33,15 @@
 
     <!-- custom - css include -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <style>
+      .item_content {
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+
+      }
+
+    </style>
+
 
   </head>
 
@@ -58,7 +67,7 @@
 
     <!-- blog_section - start
         ================================================== -->
-    <section class="blog_section sec_ptb_120 bg_default_gray">
+    <section class="blog_section sec_ptb_120">
       <div class="container">
         <div class="row justify-content-lg-between justify-content-md-center justify-content-sm-center">
 

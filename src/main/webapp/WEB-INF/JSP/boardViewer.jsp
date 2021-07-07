@@ -54,7 +54,7 @@
               
               <script>
               
-          		var count1 = 0;
+                var count1 = 0;
                 $(document).ready(function () {
 
                   selectReviewDetail();
@@ -62,7 +62,7 @@
                 });
 
 
-				// 댓글 빈칸 방지 함수, form action의 on-click으로 사용됨
+            // 댓글 빈칸 방지 함수, form action의 on-click으로 사용됨
                 function nullvaluealert() {
                   if (!document.replysubmit.replyContent.value || document.replysubmit.replyContent.value.trim() == "") {
                     alert("댓글 내용을 입력하세요");
@@ -71,7 +71,7 @@
                   }
                 }
 
-				// board view의 정보를 받아오기 위한 ajax 사용
+            // board view의 정보를 받아오기 위한 ajax 사용
                 function selectReviewDetail() {
                   var boardId = <%=boardId%>;
                   var memberId = '<%=memberId%>';
@@ -82,7 +82,7 @@
                     url: 'getReviewDetail.do',
                     dataType: 'json',
                     data: { 'boardId': boardId,
-                    		'memberId' : memberId
+                          'memberId' : memberId
                     },
                     success: function (data) {
 
@@ -99,19 +99,19 @@
                       var boardCate = data['board'].boardCate;
                       
                       if(boardCate == '3') {
-                    	  $('#boardheart').show();
-                    	  if(memberId == null || memberId == '' ){
-                    		  $("#heart").removeAttr("onclick");	// 온클릭 속성을 삭제
-                    		  $("#heart").attr("onclick", "Login();"); // 온클릭 속성을 다시부여 
-                    	  }
+                         $('#boardheart').show();
+                         if(memberId == null || memberId == '' ){
+                            $("#heart").removeAttr("onclick");   // 온클릭 속성을 삭제
+                            $("#heart").attr("onclick", "Login();"); // 온클릭 속성을 다시부여 
+                         }
                       } else {
-                    	  $('#boardheart').hide();
+                         $('#boardheart').hide();
                       }
                       
                       if(likeChk == 1) {
-                    	  $("#heart").attr('class','fas fa-heart');
+                         $("#heart").attr('class','fas fa-heart');
                       } else {
-                    	  $("#heart").attr('class','fal fa-heart');
+                         $("#heart").attr('class','fal fa-heart');
                       }
                       
                       if (memberId != null && memberId == data['board'].boardWriter) {
@@ -147,66 +147,66 @@
                 }
                 
                 function Login(){
-              	  window.location.href="<c:url value='login.do' />";
-              	
+                   window.location.href="<c:url value='login.do' />";
+                 
                 }
                 
                 // 좋아요 계산 함수, 클릭시 실행
                 function addLikeCnt() {
-                	// 게시물 번호(boardId)를 파라미터로 전달받아 저장합니다.
-                    var boardId = <%=boardId%>;		// int 라 '' 표 필요 없음
-                   	var memberId = '<%=memberId%>'; // String 이라 ''표 해주기
-               	
+                   // 게시물 번호(boardId)를 파라미터로 전달받아 저장합니다.
+                    var boardId = <%=boardId%>;      // int 라 '' 표 필요 없음
+                      var memberId = '<%=memberId%>'; // String 이라 ''표 해주기
                   
-               	
+                  
+                  
                     console.log(memberId);
                     
                 
-	                    if($('#heart').hasClass('fal') == true) {
-	 	
-	                    	 $.ajax({
-	                             url : 'heartCreate.do',
-	                             type : 'get',
-	                             data : { 
-	                            	 'boardId' : boardId,
-	                            	 'memberId': memberId
-	                             },
-	                             success : function() {
-	                                                     
-	                                 console.log("하트추가 성공");
-	                               
-	                                 selectReviewDetail();
-	                             },
-	                             error : function() {
-	                                 alert('서버 에러');
-	                             }
-	                         });
-	                    	 $("#heart").attr('class','fas fa-heart'); 
-	                    
-	                    	 
-	                    } else {
-	                    	
-	                    	$.ajax({
-	                            url : 'heartDelete.do',
-	                            type : 'get',
-	                            data : { 'boardId' : boardId,
-	                            		 'memberId': memberId
-	                            },
-	                            success : function() {
-	                                            
-	                                console.log("하트제거 성공");
-	                               
-	                                selectReviewDetail();
-	                            },
-	                            error : function() {
-	                                alert('서버 에러');
-	                            }
-	                        });
-	                   	 $("#heart").attr('class','fal fa-heart'); 
-	                    }
-	
-	                 
-                	
+                       if($('#heart').hasClass('fal') == true) {
+       
+                           $.ajax({
+                                url : 'heartCreate.do',
+                                type : 'get',
+                                data : { 
+                                   'boardId' : boardId,
+                                   'memberId': memberId
+                                },
+                                success : function() {
+                                                        
+                                    console.log("하트추가 성공");
+                                  
+                                    selectReviewDetail();
+                                },
+                                error : function() {
+                                    alert('서버 에러');
+                                }
+                            });
+                           $("#heart").attr('class','fas fa-heart'); 
+                       
+                           
+                       } else {
+                          
+                          $.ajax({
+                               url : 'heartDelete.do',
+                               type : 'get',
+                               data : { 'boardId' : boardId,
+                                      'memberId': memberId
+                               },
+                               success : function() {
+                                               
+                                   console.log("하트제거 성공");
+                                  
+                                   selectReviewDetail();
+                               },
+                               error : function() {
+                                   alert('서버 에러');
+                               }
+                           });
+                          $("#heart").attr('class','fal fa-heart'); 
+                       }
+   
+                    
+                   
                 }
                 
                 
@@ -235,7 +235,7 @@
                         });
                         console.log("하트 모습 변경1");
                         
-						alert("좋아요!");
+                  alert("좋아요!");
                         // 꽉찬하트로 바꾸기
                        /*  $(this).html("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-suit-heart-fill' viewBox='0 0 16 16'><path d='M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z'/></svg>");
                         $('.heart_icon'+no).html("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-suit-heart-fill' viewBox='0 0 16 16'><path d='M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z'/></svg>");
@@ -254,8 +254,8 @@
 
                                // let heart = pto.heart;
                                 // 페이지, 모달창에 하트수 갱신
-                              /*   $('#m_heart'+no).text(heart);
-                                $('#heart'+no).text(heart); */
+                              /*   $('#m_heart'+no).text(하트);
+                                $('#heart'+no).text(하트); */
 
                                 console.log("하트삭제 성공");
                             },

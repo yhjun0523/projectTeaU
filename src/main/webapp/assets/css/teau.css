@@ -269,24 +269,24 @@
 }
 
 #finder_detail01 .img-responsive {
-  margin-left: 20%;
+  /* margin-left: 20%; */
 }
 
 #finder_detail02 .img-responsive,
 #finder_detail03 .img-responsive {
-  margin-left: 29%;
+  /* margin-left: 29%; */
 }
 
 
 #finder_detail04 .ul_li_center {
-  margin-left: 40%;
+  /* margin-left: 40%; */
   margin-top: 50px;
   margin-bottom: 30px;
 
 }
 
 #finder_detail05 .img-responsive {
-  margin-left: 13%;
+  /* margin-left: 13%; */
 }
 
 #finder_detail05 .finder_choice {

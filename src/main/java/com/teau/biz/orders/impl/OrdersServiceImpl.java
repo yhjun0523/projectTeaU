@@ -24,7 +24,6 @@ public class OrdersServiceImpl implements OrdersService {
 		return OrdersDAO.getProIdList(vo);
 	}
 
-
 	@Override
 	public void insertOrders(OrdersVO vo) {
 		System.out.println("OrderDAO.insertOrder Service");

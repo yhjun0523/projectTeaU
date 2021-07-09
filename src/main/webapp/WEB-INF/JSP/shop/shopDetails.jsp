@@ -123,8 +123,16 @@
                            </li>
                         </ul>
                         <ul class="btns_group ul_li">
-                           <li><a class="btn btn_secondary text-uppercase" href="#!">Add To Cart</a></li>
-                           <li><a class="btn btn_secondary text-uppercase" onclick="loginCheck('insertOrdersView.do?teaId=${teaDetail.teaId}')">Direct Buy</a></li>
+                        <c:choose>
+                        <c:when test="${member.memberId ne null }">
+                           <li><a class="btn btn_secondary text-uppercase" href="cart.do?teaId=${teaDetail.teaId }">Add To Cart</a></li>
+                           <li><a class="btn btn_secondary text-uppercase" href="insertOrdersView.do?teaId=${teaDetail.teaId }">Direct Buy</a></li>
+                        </c:when>
+                        <c:otherwise>
+                           <li><a class="btn btn_secondary text-uppercase" onclick="loginCheck('cart.do?teaId=${teaDetail.teaId}')">Add To Cart</a></li>
+                           <li><a class="btn btn_secondary text-uppercase" onclick="loginCheck('insertOrdersView.do?teaId=${teaDetail.teaId}')">Direct Buy</a></li>   
+                        </c:otherwise>
+                        </c:choose>
                         </ul>
                         <div class="details_wishlist_btn">
                            <a href="#!"><i class="fas mr-1"></i></a>
@@ -186,7 +194,7 @@
                               </h3>
                               <div class="btns_group">
                                  <span class="item_price bg_default_brown">DB티 가격</span>
-                                 <a class="btn btn_border border_black text-uppercase" href="#!">Add To
+                                 <a class="btn btn_border border_black text-uppercase" href="#">Add To
                                     Cart</a>
                               </div>
                            </div>

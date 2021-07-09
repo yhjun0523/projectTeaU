@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 
 <!-- footer_section - start
@@ -137,19 +138,33 @@
         if(id == null) {
            alert("먼저 로그인 해 주세요")
            location.href="login.do";
+           
         } else {
            location.href = link;
         }
+        
      }
      
      function logInOut() {
         
         if(id == null) {
            location.href="login.do";
+
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
         } else {
            location.href="logout.do";        
            }
-     }
+     }    
      
       function myAndLog(){
         if(role == null) {
@@ -163,9 +178,6 @@
               location.href="admin.do"
            }
      }  
-      
-   
-   
       
   </script>
 

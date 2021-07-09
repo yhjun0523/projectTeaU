@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	String msg = (String) request.getAttribute("msg");
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -372,6 +373,7 @@ html, .login {
 		function onSignInFailure(t) {
 			console.log(t);
 		}
+		
 	</script>
 	<!-- 구글 api 스크립트 -->
 	<script src="https://apis.google.com/js/platform.js?onload=init"

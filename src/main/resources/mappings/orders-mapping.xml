@@ -18,19 +18,19 @@
 	</resultMap>
 	
 	<!-- 주문 가져오기 -->
-	<select id="getOrders" resultType="Orders">
+	<!-- <select id="getOrders" resultType="Orders">
       <![CDATA[   
         SELECT *
         FROM ORDERS
         WHERE MEMBER_ID = #{memberId}
       ]]>
-	</select>
+	</select> -->
 	
 	<!-- 상품 가져오기 -->
-	<select id="getProIdList" resultMap="ordersResult">
+	<select id="getProIdList" resultMap="OrdersResult">
 		<![CDATA[
-		SELECT * FROM ORDERS 
-		WHERE PRO_ID = #{proId}
+		SELECT * FROM TEA
+		WHERE TEA_ID = #{proId}
 		]]>
 	</select>
 

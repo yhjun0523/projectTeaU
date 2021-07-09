@@ -13,29 +13,29 @@ import com.teau.biz.orders.OrdersVO;
 
 @Controller
 public class OrdersController {
-   
-   @Autowired
-   private OrdersService ordersService;
-   
-   // 주문 페이지 이동
-   @RequestMapping(value="/insertOrdersView.do")
-   public String insertOrdersView(@RequestParam("teaId") int teaId, Model model) throws IOException{
-      System.out.println("insertOrdersView.do 확인");
-      
-        OrdersVO vo = new OrdersVO(); 
+
+    @Autowired
+    private OrdersService ordersService;
+
+    @RequestMapping("/insertOrdersView.do")
+    public String insertOrdersView(@RequestParam("teaId") int teaId, Model model) throws IOException {
+        System.out.println("insertOrdersView.do 확인");
+
+        OrdersVO vo = new OrdersVO();
         vo.setProId(teaId);
-        
+
+        model.addAttribute("tea", ordersService.getProList(vo));
         model.addAttribute("orders", ordersService.getOrders(vo));
-             
-      return "orders";
-   }
-   
-   // 주문 추가 기능 처리
-   @RequestMapping("/insertOrders.do")
-   public String insertOrders(OrdersVO vo, Model model) throws IOException{
-      System.out.println("주문 추가 성공");
-      ordersService.insertOrders(vo);
-      return "redirect:mypage.do";
-   }
+
+        return "orders";
+    }
+
+    // 주문 추가 기능 처리
+    @RequestMapping("/insertOrders.do")
+    public String insertOrder(OrdersVO vo, Model model) throws IOException {
+        System.out.println("주문 추가 성공");
+        ordersService.insertOrders(vo);
+        return "redirect:mypage.do";
+    }
 
 }

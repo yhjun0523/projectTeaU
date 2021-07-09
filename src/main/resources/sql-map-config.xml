@@ -19,6 +19,7 @@
 		<typeAlias type="com.teau.biz.member.MemberVO" alias="member"></typeAlias>
 		<typeAlias type="com.teau.biz.orders.OrdersVO" alias="orders"></typeAlias>
 		<typeAlias type="com.teau.biz.shop.ShopVO" alias="shop"></typeAlias>
+		<typeAlias type="com.teau.biz.orders.CartVO" alias="cart"></typeAlias>
  	</typeAliases>
 
 	<!-- Sql Mapper 설정 -->
@@ -29,6 +30,8 @@
 		<mapper resource="mappings/member-mapping.xml" />
 		<mapper resource="mappings/subscribe-mapping.xml" />
 		<mapper resource="mappings/shop-mapping.xml"/>
+		<mapper resource="mappings/cart-mapping.xml"/>
+        <mapper resource="mappings/orders-mapping.xml"/>
 		<mapper resource="mappings/teaFinder-mapping.xml" />
 	</mappers>
 </configuration>

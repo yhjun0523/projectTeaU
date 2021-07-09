@@ -172,7 +172,7 @@
 													<div class="item_image">
 														<img src="assets/images/breadcrumb/1.jpg" alt="image_not_found">
 													</div>
-													<h3 class="item_title">새싹구독</h3>
+													<h3 class="item_title">${tea.teaName }</h3>
 												</div>
 											</td>
 											<td>

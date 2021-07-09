@@ -22,12 +22,10 @@ public class LoginController {
     @RequestMapping(value="/loginView.do")
     // "memberId"의 파라미터를 요청해서 String id에 넣어달라(폼에서 사용자가 작성한 memberId가 넘어오게 된다)
     public String loginView(@RequestParam("memberId") String id, @RequestParam("memberPass") String password,
-            HttpSession session, Model model, HttpServletRequest request) {
+            @RequestParam("referer") String referer, HttpSession session, Model model, HttpServletRequest request) {
         MemberVO vo = new MemberVO();
         vo.setMemberId(id);
         
-        String referer = request.getHeader("Referer");
-        request.getSession().setAttribute("redirectURI", referer);
 
         // id 미입력시
         if (vo.getMemberId() == null || vo.getMemberId().equals("")) {
@@ -47,8 +45,12 @@ public class LoginController {
                     session.setAttribute("member", member);
                     System.out.println(member.getMemberId());
                     System.out.println("로그인 성공");
-                    System.out.println(referer.substring(referer.lastIndexOf("/")+1, referer.lastIndexOf(".")));
-                    return "redirect:index.jsp";
+                    
+                    if(referer != null && !referer.equals("")) {
+                        return "redirect:" + referer;
+                    } else {
+                        return "redirect:index.jsp";
+                    }
                     
                     
 
@@ -72,7 +74,9 @@ public class LoginController {
 
     // 로그인 상태와 비로그인 상태 구분?
     @RequestMapping(value="/login.do")
-    public String login() {
+    public String login(HttpServletRequest request, Model model) {
+        String referer = request.getHeader("Referer");
+        model.addAttribute("referer", referer.substring(referer.lastIndexOf("/")+1, referer.length()));
         
         return "login";
     }

@@ -203,6 +203,7 @@ html, .login {
                 </div> -->
 
 				<form action="loginView.do" method="POST">
+                    <input type="hidden" name="referer" value="${referer }">
 					<p style="text-align: left; margin: 10px 0 0 1px;">아이디</p>
 					<input type="text" id="inputId" name="memberId"
 						class="form-control" placeholder="아이디를 입력하세요" required autofocus />

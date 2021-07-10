@@ -100,10 +100,14 @@ public class LoginController {
     */
 
     @RequestMapping("/logout.do")
-    public String logout(HttpSession session) {
+    public String logout(HttpSession session, HttpServletRequest request, Model model) {
         System.out.println("로그아웃 성공");
         session.invalidate();
-        return "redirect:index.jsp";
+        
+        String referer = request.getHeader("Referer");
+        model.addAttribute("referer", referer.substring(referer.lastIndexOf("/")+1, referer.length()));
+        
+        return "redirect:" + referer;
     }
     //   
     //   @Autowired

@@ -150,17 +150,6 @@
         if(id == null) {
            location.href="login.do";
 
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
         } else {
            location.href="logout.do";        
            }

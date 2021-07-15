@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
-
+<html>
+<body>
 <!-- footer_section - start
       ================================================== -->
       <footer class="footer_section">
@@ -15,7 +15,7 @@
                 <div class="footer_widget footer_about wow fadeInUp" data-wow-delay=".1s">
                   <div class="brand_logo">
                     <a class="brand_link" href="index.html">
-                      <img src="assets/images/logo/TeaU.png" srcset="assets/images/logo/logo_black_2x.png 2x"
+                      <img src="assets/images/logo/TeaU.png"
                         alt="logo_not_found">
                     </a>
                   </div>
@@ -43,7 +43,7 @@
                   <h3 class="footer_widget_title text-uppercase" id="footerc">RECENT MAGAZINE</h3>
     
                   <div class="recent_post" >
-                    <a class="item_image" href="magazine.do">
+                    <a class="item_image" href="magazine.html">
                       <img src="assets/images/blog/2.jpg" alt="image_not_found"  style="width: 75px; height: 75px;" > 
                     </a>
                     <div class="item_content">
@@ -55,7 +55,7 @@
                   </div>
     
                   <div class="recent_post">
-                    <a class="item_image" href="magazine.do">
+                    <a class="item_image" href="magazine.html">
                       <img src="assets/images/blog/1.jpg" alt="image_not_found"  style="width: 75px; height: 75px;">
                     </a>
                     <div class="item_content">
@@ -82,7 +82,6 @@
     <!-- footer_section - end
       ================================================== -->
 
-
   </div>
   <!-- body_wrap - end -->
 
@@ -108,67 +107,67 @@
 
   <!-- jquery-ui - jquery include -->
   <script src="assets/js/jquery-ui.js"></script>
-  
 
   <!-- off canvas sidebar - jquery include -->
   <script src="assets/js/mCustomScrollbar.js"></script>
 
   <!-- custom - jquery include -->
   <script src="assets/js/main.js"></script>
-  
-
 <script>
 
-
-     
-     function logText(){
-        console.log(id);
-        
-        if(id == null) {
-           $('#logInOut').val('로그인');
-           
-        } else { // 이쪽으로 안넘어가는 이유?
-           $('#logInOut').val('로그아웃');
-        }
-     }
-     
-     function loginCheck(idc, link){
-        //idc = id;
-        console.log(id)
-        if(id == null) {
-           alert("먼저 로그인 해 주세요")
-           location.href="login.do";
-           
-        } else {
-           location.href = link;
-        }
-        
-     }
-     
-     function logInOut() {
-        
-        if(id == null) {
-           location.href="login.do";
-
-        } else {
-           location.href="logout.do";        
-           }
-     }    
-     
-      function myAndLog(){
-        if(role == null) {
-           console.log('로그인');
-           location.href="login.do";
-        } else if(role == '0') {
-           console.log('마이페이지');
-           location.href="mypage.do";        
-           } else if(role == '1'){
-              console.log('관리자페이지')
-              location.href="admin.do"
-           }
-     }  
+function logText(id){
+   console.log(id);
+   if(id == null){
+      $('#logInOut').val("LOGIN");
       
-  </script>
+   }else{
+      $('#logInOut').val("LOGOUT");
+   }
+} 
 
+function logInOut(){
+   if(id == null){
+      location.href="login.do";
+      
+   }else{
+      location.href="logout.do";
+   }
+}
+
+function loginCheck(link){
+   console.log(link);
+   if(id == null){
+      alert("로그인 후 이용해주세요.");
+      location.href="login.do";
+   }else{
+      location.href= link ;
+   }
+}
+
+
+function myAndLog(){
+    if(role == null || id == null) {
+       console.log('로그인');
+       location.href="login.do";
+    } else if(role == '0') {
+       console.log('마이페이지');
+       location.href="mypage.do";        
+       } else if(role == '1'){
+          console.log('관리자페이지')
+          location.href="admin.do"
+       }
+ }  
+
+function goCart(){
+   if(id==null){
+      location.href="cart.do";
+   }else{
+      location.href="cart.do?memberId="+id;
+      
+   }
+}
+
+
+</script>
 </body>
-</html> 
+</html>

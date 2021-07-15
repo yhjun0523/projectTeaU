@@ -1,56 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-                 "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
+<head>
+<script src = "assets/js/com_lib.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+   getMemberInfo();
+});
 
-<body>
-
-  <!-- 유저 세션 받아오기 -->
-  <script src="assets/js/com_lib.js"></script>
-  <!-- 제이쿼리  -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
    
-     <script type="text/javascript">
-      $(document).ready(function(){
-        getMemberInfo();
-        logText();
-        console.log(id);
-        
-        
-     });
-     
-     // 전역변수 id 선언
-     let id;
-     // 전역변수 role 선언
-     let role;
-     
+let id = '';
+let role = '';
+// 세션체크 JSON 전송
+function sessionCheck(obj) {
+   if (obj["member"] != null) {
+      id = obj["member"].memberId;
+      role = obj["member"].memberRole;
+      console.log(id);
+      console.log(role);
+      if (role == '1') {
+         $('.admin').show();
+      } else {
+         $('.admin').hide();
+      }
 
-     // 세션체크 JSON 전송
-     function sessionCheck(obj){
-        if(obj["member"] != null) {           
-           id = obj["member"].memberId;
-           role = obj["member"].memberRole
-           
-        } else{
-           id = null;
-           role = null;
-        }
-        console.log(id);
-        logText(id);
-     }
-     
-     /*      function sessionCheck(obj){
-        id = obj["member"].memberId;
-        console.log(id);
-        
-     } */
-     
-     </script>
+   } else {
+      id = null;
+      console.log(id);
+      if (role == '1') {
+         $('.admin').show();
+      } else {
+         $('.admin').hide();
+      }
+
+   }
+   console.log("id=" + id);
+
+   logText(id);
+}
 
 
-
+</script>
+</head>
+<body>
  <!-- body_wrap - start -->
   <div class="body_wrap">
 
@@ -103,9 +97,9 @@
                           shop
                         </a>
                         <ul class="submenu dropdown-menu" aria-labelledby="portfolio_submenu">
-                          <li><a href="shopSeason.do">#계절별</a></li>
-                          <li><a href="shopUser.do">#사용자별</a></li>
-                          <li><a href="shopBlend.do">#디카페인</a></li>
+                          <li><a href="shopSeason.do">#계절</a></li>
+                          <li><a href="shopUser.do">#사용자</a></li>
+                          <li><a href="shopBlend.do">#베이스</a></li>
                         </ul>
                       </li>
                       <li class="dropdown">
@@ -115,9 +109,9 @@
                         </a>
                         <ul class="submenu dropdown-menu" aria-labelledby="services_submenu">
                           <li><a href="toBoard.do">씨앗 리뷰</a></li>
-                            <li><a href="tbBoard.do">새싹&나무 리뷰</a></li>
-                            <li><a href="rankBoard.do">새싹&나무 랭킹</a></li>
-                            <li><a href="faq.do">F.A.Q.</a></li>
+                          <li><a href="tbBoard.do">새싹&나무 리뷰</a></li>
+                          <li><a href="rankBoard.do">새싹&나무 랭킹</a></li>
+                          <li><a href="faq.do">F.A.Q.</a></li>
                         </ul>
                       </li>
                       <li class="dropdown">
@@ -134,17 +128,16 @@
                   <ul class="header_btns_group ul_li_right">
                     <li>
                       <button type="button" class="main_search_btn">
-                        <a class="fal fa-user" onclick="myAndLog()" style="color: black;" ></a>
+                        <a class="fal fa-user" onclick="myAndLog();" style="color:black;"></a>
                       </button>
                     </li>
                     <li>
-                      <button type="button" class="cart_btn">
-                        <i class="fal fa-shopping-bag"></i>
-                        <small class="cart_counter">2</small>
+                      <button type="button">
+                        <a class="fal fa-shopping-bag" onclick="goCart();" style="color:black;" ></a>
                       </button>
                     </li>
                     <li>
-                      <input type="button" id="logInOut" class="btn btn_primary text-uppercase" value="LogIN" onclick="logInOut()">
+                      <input type="button" class="btn btn_primary text-uppercase" id="logInOut" value="LOGIN" onclick="logInOut();"/>
                     </li>
                   </ul>
                 </nav>
@@ -263,5 +256,6 @@
       </div>
       <!-- cart_sidebar - end
         ================================================== -->
+       
 </body>
 </html>

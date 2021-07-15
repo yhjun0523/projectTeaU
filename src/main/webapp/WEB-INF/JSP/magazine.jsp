@@ -34,10 +34,19 @@
     <!-- custom - css include -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <style>
+      @font-face {
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
       .item_content {
         border: 1px solid rgba(0,0,0,.125);
         border-radius: .25rem;
 
+      }
+      .font {
+      font-family: 'InfinitySans-RegularA1';
       }
 
     </style>
@@ -77,7 +86,7 @@
                 <img src="assets/images/blog/magazine_01.jpg" alt="image_not_found" id="name123">
               </a>
               <div class="item_content">
-                <h3 class="item_title text-uppercase" id="name1234">
+                <h3 class="item_title text-uppercase font" id="name1234">
                   블렌딩이란?
                 </h3>
               </div>
@@ -88,7 +97,7 @@
                 <img src="assets/images/blog/magazine_03.jpg" alt="image_not_found" id="magazine_03_img">
               </a>
               <div class="item_content">
-                <h3 class="item_title text-uppercase" id="magazine_03_img">
+                <h3 class="item_title text-uppercase font" id="magazine_03_img">
                   건강 고민별로 골라 마시는 차 7종류
                 </h3>
               </div>
@@ -102,7 +111,7 @@
                 </a>
               </div>
               <div class="item_content">
-                <h3 class="item_title text-uppercase">
+                <h3 class="item_title text-uppercase font">
                   <a href="https://www.youtube.com/watch?v=Ni8ONMFCoOg">차를 맛있게 마시는 방법 </a>
                 </h3>
               </div>
@@ -120,7 +129,7 @@
                 <img src="assets/images/blog/magazine_02.jpg" alt="image_not_found" id="magazine_02_img">
               </a>
               <div class="item_content">
-                <h3 class="item_title text-uppercase" id="magazine_02_text">
+                <h3 class="item_title text-uppercase font" id="magazine_02_text">
                   차를 맛있게 마시는 방법들!
                 </h3>
               </div>
@@ -131,7 +140,7 @@
                 <img src="assets/images/blog/magazine_04.jpg" alt="image_not_found" id="magazine_04_img">
               </a>
               <div class="item_content">
-                <h3 class="item_title text-uppercase" id="magazine_04_text">
+                <h3 class="item_title text-uppercase font" id="magazine_04_text">
                   계절별 마시기 좋은 차
                 </h3>
               </div>
@@ -145,7 +154,7 @@
                 </a>
               </div>
               <div class="item_content">
-                <h3 class="item_title text-uppercase">
+                <h3 class="item_title text-uppercase font">
                   <a href="https://www.youtube.com/watch?v=3AJqxjZGXNQ">냉침차 만드는 방법 </a>
                 </h3>
               </div>
@@ -164,7 +173,7 @@
             <div class="popup-body">
               <div class="body-content">
                 <div class="body-titlebox">
-                  <h1>블렌딩이란?</h1>
+                  <h1 class="font">블렌딩이란?</h1>
                 </div>
                 <div class="body-contentbox">
 
@@ -172,8 +181,8 @@
                     <img src="assets/images/blog/magazine_01_modal.jpg" id="modal_img" alt="image_not_found">
                   </div>
 
-                  <p style="font-size:30px; font-weight: bold;">블렌딩이란 각기 다른 맛과 향을 지닌 잎차를 섞거나 기본 잎차에 꽃잎이나 과일, 허브나 향 등을
-                    섞는 것을 말합니다.</p>
+                  <p class="font" style="font-size:30px; font-weight: bold;">블렌딩이란 각기 다른 맛과 향을 지닌 잎차를 섞거나 기본 잎차에 꽃잎이나 과일, 허브나 향 등을
+                    섞는 것을 말합니다.</p><br>
                   <p>
                     블렌딩 티의 역사를 알려면 19세기 후반 영국의 티타임으로 시 간을 거슬러야 합니다.
                     익히 알려진대로 당시 영국에서는 차가 부와 권력의 상징으로 여겨질 만큼 귀했습니다.
@@ -216,7 +225,7 @@
           <div class="popup">
             <div class="popup-body">
               <div class="body-content">
-                <div class="body-titlebox">
+                <div class="body-titlebox font">
                   <h1>차를 맛있게 마시는 방법들!</h1>
                 </div>
                 <div class="body-contentbox">
@@ -227,7 +236,7 @@
                     <img src="assets/images/blog/magazine_col_2_1.jpg" id="modal_img" alt="image_not_found">
                   </div>
                   <br />
-                  <p style="font-size:25px; font-weight: bold;">재료의 상태에 따라서 차를 우려내서 마시는 방법과 끓여서 마시는 방법으로 나눌 수 있습니다.
+                  <p class="font" style="font-size:25px; font-weight: bold;">재료의 상태에 따라서 차를 우려내서 마시는 방법과 끓여서 마시는 방법으로 나눌 수 있습니다.
                     두가지의 방법은 맛과 향을 살리는데 서로 다르게 작용하기 때문에 재료에 따라서 알맞은 방법을 선택하여 만들어 마시면 됩니다.</p>
 
                   <br />
@@ -338,7 +347,7 @@
           <div class="popup">
             <div class="popup-body">
               <div class="body-content">
-                <div class="body-titlebox">
+                <div class="body-titlebox font">
                   <h1> 건강 고민별로 골라 마시는 차 7종류</h1>
                 </div>
                 <div class="body-contentbox">
@@ -347,7 +356,7 @@
                   <br />
 
                   <br />
-                  <p style="font-size:25px; font-weight: bold;">개개인이 갖고 있는 건강 고민 별로 골라 마실 수 있는 대표적인 차 7종류를 소개한다.</p>
+                  <p class="font" style="font-size:25px; font-weight: bold;">개개인이 갖고 있는 건강 고민 별로 골라 마실 수 있는 대표적인 차 7종류를 소개한다.</p>
 
                   <br />
                   <br />
@@ -558,7 +567,7 @@
                   <br />
 
                   <br />
-                  <p style="font-size:25px; font-weight: bold;">개개인이 갖고 있는 건강 고민 별로 골라 마실 수 있는 대표적인 차 7종류를 소개한다.</p>
+                  <p class="font" style="font-size:25px; font-weight: bold;">개개인이 갖고 있는 건강 고민 별로 골라 마실 수 있는 대표적인 차 7종류를 소개한다.</p>
 
                   <br />
                   <br />

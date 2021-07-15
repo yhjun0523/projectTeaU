@@ -66,7 +66,42 @@
                 justify-content: center;
                 color: #999999;
               }
+              
+            .ul_li {
+              margin-left: 0px;
+            }
+            
+            
+            a:link {
+              color: black;
+            }
+            
+            a:visited {
+              color: black;
+            }
+            
+            a:hover {
+              color: #fd6c44;
+            }
+            
+            a:active {
+              color: #fd6c44;
+            }
+            
+          .wrap_space h2 a {
+            font-size: 22px;
+            font-family: 'InfinitySans-RegularA1';
+            /* font-family: 'twayair'; */
+            
+            }
+            
+            .container h1 {
+             font-family: 'InfinitySans-RegularA1';
+            }
+            
+            
             </style>
+            
           </head>
 
 
@@ -112,11 +147,11 @@
                                 <li><a href="#!"><i class="fal fa-user"></i>${board.boardWriter }</a></li>
                                 <li><i class="fal fa-calendar-alt"></i>${board.boardRegdate }</li>
                               </ul>
-                              <h2 class="details_title text-uppercase wow fadeInUp" data-wow-delay=".1s"><a
+                              <h2  data-wow-delay=".1s"><a
                                   href="boardViewer.do?boardId=${board.boardId }&boardImgm=${board.boardImgm}">${board.boardTitle}
 
                                   <c:if test="${board.replyCount ne 0}">
-                                    <small><b>[&nbsp;
+                                    <small><b>[
                                         <c:out value="${board.replyCount}" />&nbsp;]
                                       </b></small>
                                   </c:if>
@@ -155,16 +190,16 @@
                           &nbsp;&nbsp;
                           <input id="searchKeyword" name="searchKeyword" type="text" />
                           &nbsp;&nbsp;
-                          <input type="submit" value="검색" />
+                          <input type="submit" value="검색" style="background-color: #fd6c44; border-radius: 6px; color:white;" />
                         </div>
                       </div>
                       <!-- 검색 끝  -->
                       <div class="col-lg-2">
                         <c:if test="${member.memberId == null }">
-                          <a class="btn btn_primary text-uppercase" href="login.do">글쓰기</a>
+                          <a class="btn btn_primary text-uppercase" href="login.do" style="color:white;">글쓰기</a>
                         </c:if>
                         <c:if test="${member.memberId != null }">
-                          <a class="btn btn_primary text-uppercase" href="boardCreateMove.do?boardCate=1">글쓰기</a>
+                          <a class="btn btn_primary text-uppercase" href="boardCreateMove.do?boardCate=1" style="color:white;">글쓰기</a>
                         </c:if>
 
                       </div>

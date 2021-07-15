@@ -41,6 +41,7 @@
 
 <!-- custom - css include -->
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="assets/css/teau.css">
 <style>
 .header_section {
 	background-color: white;
@@ -60,8 +61,7 @@
 		<div class="container">
 			<h1 class="page_title text-white wow fadeInUp" data-wow-delay=".1s">씨앗구독</h1>
 			<ul class="breadcrumb_nav ul_li wow fadeInUp" data-wow-delay=".2s">
-				<li><a href="index.do"><i class="fas fa-home"></i> Home</a></li>
-				<li>씨앗 구독</li>
+				
 			</ul>
 		</div>
 		<div class="breadcrumb_icon_wrap">
@@ -80,99 +80,148 @@
 	<main>
 		<!-- reserve_table_section - start
         ================================================== -->
-		<section class="reserve_table_section sec_ptb_120">
-			<div class="container">
-				<div class="reserve_table_form wow fadeInUp" data-wow-delay=".1s">
-					<h2 class="form_title text-center text-uppercase"
-						style="font-size: 35px;">원하는 항목을 골라보세요(중복 가능)</h2>
+		<section class="reserve_table_section sec_ptb_120 subSeedContainer">
+			<div class="container " id="subSeed">
+				<div class="reserve_table_form wow fadeInUp" data-wow-delay=".1s" style="box-shadow: 0px 0px 5px 5px rgb(236, 236, 236);">
+					<h2 class="form_title text-center text-uppercase su subSeed"
+						style="font-size: 35px; margin-bottom: 75px;">원하는 항목을 골라보세요(중복 가능)</h2>
 
 					<form action="insertSubSeed.do" id="insertForm" method="POST">
 						<input type="hidden" id="subUser" name="subUser"
-							value="${member.memberId}" />
-						<input type="hidden" id="subCheck" name="subCheck"
-							value="${member.memberSub}" />
+							value="${member.memberId}" /> <input type="hidden" id="subCheck"
+							name="subCheck" value="${member.memberSub}" />
 						<div class="row justify-content-center">
 
 
 							<!--나눠놓은 기준은 행 단위-->
+
 							<div class="col-lg-2"></div>
-							<div class="col-lg-8 sub_leaf_title">맛</div>
+							<div class="col-lg-8 sub_leaf_title" style="margin-bottom: 25px;">
+								맛</div>
 							<div class="col-lg-2"></div>
+
 							<div class="col-lg-3"></div>
 							<div class="col-lg-3 sub_seed">
 
-								<label style="cursor: pointer"><input type="checkbox"
-									name="tagTaste" value="시원한맛" /> 시원한 맛(민트)</label> <br /> <label
-									style="cursor: pointer"><input type="checkbox"
-									name="tagTaste" value="떫은맛" /> 떫은맛(마테차)</label> <br /> <label
-									style="cursor: pointer"><input type="checkbox"
-									name="tagTaste" value="구수한맛" /> 구수한 맛(얼그레이)</label>
+								<input class="inp-cbx" type="checkbox" id="mint" name="tagTaste"
+									value="시원한맛" /> <label class="cbx" for="mint"><span>
+										<svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg>
+								</span><span>시원한맛</span></label> <br /> <input class="inp-cbx" type="checkbox"
+									id="mate" name="tagTaste" value="떫은맛" /> <label class="cbx"
+									for="mate"><span> <svg width="12px"
+											height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg></span><span>떫은맛</span></label> <br /> <input class="inp-cbx"
+									type="checkbox" id="earlGray" name="tagTaste" value="구수한맛" />
+								<label class="cbx" for="earlGray"><span> <svg
+											width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg></span><span>구수한맛</span></label>
 
 							</div>
-
+							<div class="col-lg-1"></div>
 							<div class="col-lg-3 sub_seed">
-								<label style="cursor: pointer"><input type="checkbox"
-									name="tagTaste" value="단맛" /> 단맛(오미자차)</label> <br /> <label
-									style="cursor: pointer"><input type="checkbox"
-									name="tagTaste" value="신맛" /> 신맛(히비스커스)</label>
+								<input class="inp-cbx" type="checkbox" id="sweet"
+									name="tagTaste" value="단맛" /> <label class="cbx" for="sweet"><span>
+										<svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg>
+								</span><span>단맛</span></label> <br /> <input class="inp-cbx" type="checkbox"
+									id="sour" name="tagTaste" value="신맛" /> <label class="cbx"
+									for="sour"><span> <svg width="12px"
+											height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg></span><span>신맛</span></label>
 							</div>
+
+							<div class="col-lg-1"></div>
+
+							<div class="col-lg-12"></div>
+							<!--  <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                   <hr size="3" noshade>
+                </div>
+                <div class="col-lg-2"></div> -->
+
+
+							<div class="col-lg-2"></div>
+							<div class="col-lg-8 sub_leaf_title"
+								style="margin-bottom: 30px; margin-top: 20px;">카페인</div>
+							<div class="col-lg-2"></div>
 
 							<div class="col-lg-3"></div>
+							<div class="col-lg-3 sub_seed">
+								<input class="inp-cbx" type="checkbox" id="caffeine"
+									name="tagCaff" value="카페인" /> <label class="cbx"
+									for="caffeine"><span> <svg width="12px"
+											height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg></span><span>카페인</span></label>
+							</div>
+							<div class="col-lg-1"></div>
+
+							<div class="col-lg-3 sub_seed">
+								<input class="inp-cbx" type="checkbox" id="decaffeine"
+									name="tagCaff" value="디카페인" /> <label class="cbx"
+									for="decaffeine"><span> <svg width="12px"
+											height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg></span><span>디카페인</span></label>
+							</div>
+							<div class="col-lg-1"></div>
 
 							<div class="col-lg-2"></div>
 							<div class="col-lg-8">
-								<hr size="5" noshade>
+								<!--    <hr size="3" noshade> -->
 							</div>
 							<div class="col-lg-2"></div>
 
 							<div class="col-lg-2"></div>
-							<div class="col-lg-8 sub_leaf_title" style="margin-bottom: 30px;">
-								카페인</div>
+							<div class="col-lg-8 sub_leaf_title"
+								class="col-lg-8 sub_leaf_title"
+								style="margin-bottom: 20px; margin-top: 20px;">효능</div>
 							<div class="col-lg-2"></div>
 
 							<div class="col-lg-3"></div>
 							<div class="col-lg-3 sub_seed">
-								<label style="cursor: pointer"><input type="checkbox"
-									name="tagCaff" value="카페인" /> 카페인</label>
+								<input class="inp-cbx" type="checkbox" id="heart"
+									name="tagEffect" value="심신안정" /> <label class="cbx"
+									for="heart"><span> <svg width="12px"
+											height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg></span><span>심신안정</span></label> <br /> <input class="inp-cbx"
+									type="checkbox" id="hBody" name="tagEffect" value="활력" /> <label
+									class="cbx" for="hBody"><span> <svg width="12px"
+											height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg></span><span>활력</span></label>
 							</div>
+							<div class="col-lg-1"></div>
 
 							<div class="col-lg-3 sub_seed">
-								<label style="cursor: pointer"><input type="checkbox"
-									name="tagCaff" value="디카페인" /> 디카페인</label>
+								<input class="inp-cbx" type="checkbox" id="health"
+									name="tagEffect" value="건강" /> <label class="cbx" for="health"><span>
+										<svg width="12px" height="10px">
+                        <use xlink:href="#check"></use>
+                      </svg>
+								</span><span>건강</span></label>
 							</div>
-							<div class="col-lg-3"></div>
-
-							<div class="col-lg-2"></div>
-							<div class="col-lg-8">
-								<hr size="5" noshade>
-							</div>
-							<div class="col-lg-2"></div>
-
-							<div class="col-lg-2"></div>
-							<div class="col-lg-8 sub_leaf_title" style="margin-bottom: 20px;">
-								효능</div>
-							<div class="col-lg-2"></div>
-
-							<div class="col-lg-3"></div>
-							<div class="col-lg-3 sub_seed">
-								<label style="cursor: pointer"><input type="checkbox"
-									name="tagEffect" value="심신안정" /> 심신안정</label> <br /> <label
-									style="cursor: pointer"><input type="checkbox"
-									name="tagEffect" value="활력" /> 활력</label>
-							</div>
-
-							<div class="col-lg-3 sub_seed">
-								<label style="cursor: pointer"><input type="checkbox"
-									name="tagEffect" value="건강" /> 건강</label>
-							</div>
-							<div class="col-lg-3"></div>
+							<div class="col-lg-1"></div>
 
 							<div class="text-center">
-								<br /> <br /> <br />
-								<input type="button" id="btn_subSubmit" class="btn btn_primary text-uppercase"
-									onclick="inORUp()"></input>
+								<br /> <br /> <br /> <input type="button" id="btn_subSubmit"  style="font-size:18px;"
+									class="btn btn_primary text-uppercase" onclick="inOrUp()"></input>
 							</div>
 						</div>
+						<!--SVG Sprites-->
+						<svg class="inline-svg">
+                <symbol id="check" viewbox="0 0 12 10">
+                  <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                </symbol>
+              </svg>
+						<!-- partial -->
 					</form>
 					<!--여기 위 부분을 수정-->
 
@@ -197,31 +246,33 @@
 
 	<script>
 		$(document).ready(function() {
-			var data = <%=data%>;
+			var data =
+	<%=data%>
+		;
 			console.log(data);
 			if (data != null) {
 				var obj = JSON.parse(data); // string -> JSON
 				console.log(obj);
-				var tagTaste = obj['subInfo'].tagTaste.split(',');
+				var tagTaste = obj['subInfo'].tagTaste.split(',');  //subInfo = 구독vo 전부..!를 가져와서 tagTaste에 배열로 저장
 				var tagCaff = obj['subInfo'].tagCaff.split(',');
 				var tagEffect = obj['subInfo'].tagEffect.split(',');
 
 				$('input:checkbox[name="tagTaste"]').each(function() {
-					for(var i = 0; i<tagTaste.length; i++) {
+					for (var i = 0; i < tagTaste.length; i++) {
 						if (this.value == tagTaste[i]) {
 							this.checked = true;
 						}
 					}
 				});
 				$('input:checkbox[name="tagCaff"]').each(function() {
-					for(var i = 0; i<tagCaff.length; i++) {
-						if (this.value == tagCaff[i]) {	
+					for (var i = 0; i < tagCaff.length; i++) {
+						if (this.value == tagCaff[i]) {
 							this.checked = true;
 						}
 					}
 				});
 				$('input:checkbox[name="tagEffect"]').each(function() {
-					for(var i = 0; i<tagEffect.length; i++) { 
+					for (var i = 0; i < tagEffect.length; i++) {
 						if (this.value == tagEffect[i]) {
 							this.checked = true;
 						}
@@ -229,41 +280,41 @@
 				});
 			}
 
-			
 			// insert, update 버튼 구분
-			if(data == null) {
+			if (data == null) {
 				$('#btn_subSubmit').val('씨앗 구독 신청');
-			}else {
+			} else {
 				$('#btn_subSubmit').val('씨앗 구독 수정');
-			
+
 			}
 		});
-		
+
 		// insert , update 경로 구분
-		function inORUp(){
-			let data = <%=data%>;
+		function inOrUp() {
 			let subCheck = $('#subCheck').val();
-			
-			if(data == null) {
-				
-				// 사용자가 보낸 정보가 없으면 구독 내역 있는지 체크(1인 1구독)
-				if(subCheck == 1){
-					alert("이미 구독 중인 상품이 있습니다.")
-				} else{
-				// 구독 내역 없으면 insert
-				var insert = 'insertSubSeed.do'
-				checkbox(insert);
+			let data =
+	<%=data%>;
+		// data는 구독정보 (세션에 담긴걸 뽑아온거임)
+			if (data == null) {
+				if (subCheck == 1) {
+					alert("이미 구독중인 상품이 있습니다.");
+					location.href="index.jsp";
+				}else {
+					// 사용자가 보낸 정보가 없으면 insert
+					var insert = 'insertSubSeed.do';
+					checkbox(insert);
 				}
+
 			} else {
 				// 사용자가 보낸 정보가 있으면 update
-				var update = 'updateSubSeed.do'
+				var update = 'updateSubSeed.do';
 				checkbox(update);
 			}
 		}
 		
 		
 
-		function checkbox(inORUp) {
+		function checkbox(inOrUp) {
 			if ($("input:checkbox[name=tagTaste]").is(":checked") == false) {
 				alert("맛을 하나 이상 선택해주세요");
 				return false;
@@ -276,12 +327,12 @@
 			} else {
 				$.ajax({
 					type : 'POST',
-					url : inORUp,
+					url : inOrUp,
 					dataType : 'text',// form에 있는 데이터들을 controller로 text타입으로 
 					data : $('#insertForm').serialize(),
 					success : function(data) {
 						alert(data);
-						window.location.href = ("getSubSeed.do"); //JSP 이동 페이지 적기  
+						window.location.href = ("mypage.do"); //JSP 이동 페이지 적기  
 					},
 					error : function(e) {
 						console.log(e);

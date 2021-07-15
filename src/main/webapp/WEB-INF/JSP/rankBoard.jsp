@@ -66,6 +66,45 @@
                 justify-content: center;
                 color: #999999;
               }
+              
+              .ul_li {
+              margin-left: 0px;
+            }
+            
+            a:link {
+              color: black;
+            }
+            
+            a:visited {
+              color: black;
+            }
+            
+            a:hover {
+              color: #fd6c44;
+            }
+            
+            a:active {
+              color: #fd6c44;
+            }
+            
+          .wrap_space h2 a {
+            font-size: 22px;
+            font-family: 'InfinitySans-RegularA1';
+            /* font-family: 'twayair'; */
+            
+            }
+            
+            .container h1 {
+             font-family: 'InfinitySans-RegularA1';
+             
+            }
+            
+            .accordion-item a {
+            font-family: 'InfinitySans-RegularA1';
+            
+            
+            }
+            
             </style>
           </head>
 
@@ -80,7 +119,7 @@
                   <div class="container">
                     <div class="reserve_table_form wow fadeInUp" data-wow-delay=".1s"
                       style="padding-bottom: 60px; background-color: white">
-                      <h2 class="form_title text-center text-uppercase">이달의 차 랭킹</h2>
+                      <h2 class="form_title text-center text-uppercase" style="font-family: 'InfinitySans-RegularA1';">이달의 차 랭킹</h2>
                       <div class="row justify-content-center">
                         <div class="col-lg-10">
                           <div class="faq_accordion" id="faq_accordion">
@@ -106,7 +145,7 @@
                                     <c:out value="${status.count}" />
                                     <a href="#"
                                       style="color: black; font-weight: bolder; margin-left: 20px;">${board.boardTitle}</a>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vote: ${board.boardLikeCount } like
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:red;">&#9829; ${board.boardLikeCount } like</a>
                                   </button>
                                 </h3>
 
@@ -180,14 +219,14 @@
                               <ul class="post_meta ul_li wow fadeInUp" data-wow-delay=".1s">
                                 <li><a href="#!"><i class="fal fa-user"></i>${board.boardWriter }</a></li>
                                 <li><i class="fal fa-calendar-alt"></i>${board.boardRegdate }</li>
-                                <li>vote: ${board.boardLikeCount } like </li>
+                                <li style="color:red;"> &#9829; ${board.boardLikeCount } like </li>
                               </ul>
 
                               <h2 class="details_title text-uppercase wow fadeInUp" data-wow-delay=".1s"><a
                                   href="boardViewer.do?boardId=${board.boardId }&boardImgm=${board.boardImgm}">${board.boardTitle}
 
                                   <c:if test="${board.replyCount ne 0}">
-                                    <small><b>[&nbsp;
+                                    <small><b>[
                                         <c:out value="${board.replyCount}" />&nbsp;]
                                       </b></small>
                                   </c:if>
@@ -227,16 +266,16 @@
                               &nbsp;&nbsp;
                               <input id="searchKeyword" name="searchKeyword" type="text" />
                               &nbsp;&nbsp;
-                              <input type="submit" value="검색" />
+                               <input type="submit" value="검색" style="background-color: #fd6c44; border-radius: 6px; color:white;" />
                             </div>
                           </div>
                           <!-- 검색 끝  -->
                           <div class="col-lg-2">
                             <c:if test="${member.memberId == null }">
-                              <a class="btn btn_primary text-uppercase" href="login.do">글쓰기</a>
+                              <a class="btn btn_primary text-uppercase" href="login.do" style="color:white;">글쓰기</a>
                             </c:if>
                             <c:if test="${member.memberId != null }">
-                              <a class="btn btn_primary text-uppercase" href="boardCreateMove.do?boardCate=1">글쓰기</a>
+                              <a class="btn btn_primary text-uppercase" href="boardCreateMove.do?boardCate=1" style="color:white;">글쓰기</a>
                             </c:if>
 
                           </div>

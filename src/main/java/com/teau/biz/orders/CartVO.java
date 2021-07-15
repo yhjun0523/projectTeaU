@@ -11,5 +11,13 @@ public class CartVO {
     private int teaId;
     
     private int proCnt;
+    
+    private String teaName;
+    
+    private String teaImg;
+    
+    private int teaPrice;
+    
+    private int totalPrice;
 
 }

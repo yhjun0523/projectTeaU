@@ -59,6 +59,12 @@
         font-weight: normal;
         font-style: normal;
       }
+       @font-face {
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}
 
       #finder_detail01 .img-responsive {
         /* margin-left: 20%; */
@@ -88,6 +94,7 @@
 
       .btn {
         background-color: #fd6c44;
+        font-size: 18px;
 
       }
 
@@ -212,6 +219,10 @@
       .btn-primary .question2:hover{
       	border-color:#fd6c44;
       }
+       .btn-primary:hover {
+       background-color: #black;
+       border-color: #black;
+       }
       
       label.btn.btn-primary.active{
           background: red;
@@ -271,13 +282,6 @@
 	 		$(this).parent().addClass('active').siblings('.img-radio').css('opacity', '1');
 	    }); 
 		
-		$('input:checkbox[name="tagBase"]').click(function (e) {
-	 		$('input:checkbox[name="tagBase"]').checked = false;
-	 		$('input:checkbox[name="tagBase"]').parent().removeClass('active').siblings('.img-radio').css('opacity', '0.3');
-	 		this.checked = true;
-	 		$(this).parent().addClass('active').siblings('.img-radio').css('opacity', '1');
-	    }); 
-		
 		$('input:checkbox[name="tagSeason"]').click(function (e) {
 	 		$('input:checkbox[name="tagSeason"]').checked = false;
 	 		$('input:checkbox[name="tagSeason"]').parent().removeClass('active').siblings('.img-radio').css('opacity', '0.3');
@@ -291,7 +295,7 @@
 		 $("#question2").hide();
 		 $("#question3").hide();
 		 $("#question4").hide();
-		 $("#question5").hide();
+	
 		 
 		 $(".question2").click(function(){
 			  $("#question2").show();
@@ -305,9 +309,7 @@
 			  $("#question4").show();
 		  });
 		  
-		  $(".question5").click(function(){
-			  $("#question5").show();
-		  });
+		
 		  
 		  
 		});
@@ -323,10 +325,7 @@
 		} else if ($("input:checkbox[name=tagCaff]").is(":checked") == false) {
 			alert("카페인 유무의 선호도를 선택해주세요");
 			return false;
-		}  else if ($("input:checkbox[name=tagBase]").is(":checked") == false) {
-			alert("원하시는 차 베이스를 선택해주세요");
-			return false;
-		}  else if ($("input:checkbox[name=tagSeason]").is(":checked") == false) {
+		} else if ($("input:checkbox[name=tagSeason]").is(":checked") == false) {
 			alert("어울리는 계절을 선택해 주세요");
 			return false;
 		} else {
@@ -346,13 +345,14 @@
 	            	  
 	            	  $('#modalResult').html();
 	            	  var html = '';
+	            	  html += '<div class="list_wrap" >';
+        			  html += '<ul style="list-style: none;">';
 	            	  
 	            	  	if(data['teaFinderList'].length!=0){
 			            	  for(var i = 0; i < data['teaFinderList'].length; i++) {
 			            		  console.log(1111);
 			            		  if(i == 0) {
-			            			  html += '<div class="list_wrap" >';
-			            			  html += '<ul style="list-style: none;">';
+			            			  
 			            		  }
 			            	
 			            		  
@@ -363,27 +363,30 @@
 			            		  html += 				data['teaFinderList'][i].tagBase;
 			            		  html += '			</span>';
 			            		  html += '		</div>';
-			            		  html += '		<div class="t_img">';	            	
+			            		  html += '		<div class="t_img">';	
+			            		  html += ' 	<a class="item_image" href="shopDetails.do?teaId=';
+			            		  html +=			data['teaFinderList'][i].teaId;
+			            		  html += '			">';
 			            		  html += '			<img src="resource/imgUpload/';
 			            		  html += 			data['teaFinderList'][i].teaImg;
-			            		  html += '			" alt="상품명1" style="width: 300px;">';
+			            		  html += '			" alt="상품명1" style="height: 250px;">';
+			            		  html += '			</a>';	
 			            		  html += '		</div>';
 			            		  html += '		<div class="t_name">';
 			            		  html += '			<strong class="name">';
 			            		  html += 				data['teaFinderList'][i].teaName;
 			            		  html += '			</strong>';
-			            		  html += '		<p class="t_explain">';
-			            		  html += 				data['teaFinderList'][i].teaInfo;
-			            		  html += '		</p>';
 			            		  html += '		</div>';
-			            		  html += '		</div>';
+			            		  html += '	</div>';
 			            		  html += '	</li>';
 			            		  html += '	<br/>';
 			            		  if(i == data['teaFinderList'].length - 1) {
-			            			  html += '</ul>';
-			            			  html += '</div>';
+			            		
 			            		  }
 			            	 }
+			            	  html += '</ul>';
+			            	  html += '</div>';
+	            			  
             	  		} else {
 	                           alert("현재 등록되지 않은 태그 리스트 입니다. 다른 태그를 골라주세요!");
 	                           window.location.href = "tea_finder.do";
@@ -589,62 +592,11 @@
           </div>
 
 
-          <!-- 4번 질문  -->
-          <div id="question4" class="container finder_detail q4">
-            <div class="contact_form bg_white wow fadeInUp" data-wow-delay=".1s">
-              <div class="finder_inner box" id="finder_detail03">
-                <div class="finder_content">
-                  <div class="row">
-                  
-                    <h4>선호하는 차 베이스는 무엇인가요?</h4>
-                   
-       				 <div class="finder_choice col-md-3 col-xs-3 ">
-                      <img src="resource/imgUpload/finder/black.png" class="img-responsive img-radio ul_li_center"
-                        style="height: 200px; ">
-                        <label class="btn btn-primary question5" style="width:100%;">
-								<input type="checkbox" id="left-item" style="display:none" class="check" name="tagBase" value="BLACK"/> 홍차
-					    </label>                  
-                    </div>
-                    
-                    <div class="finder_choice col-md-3 col-xs-3">
-                      <img src="resource/imgUpload/finder/green.png" class="img-responsive  img-radio ul_li_center"
-                        style="height: 200px; ">
-                       <label class="btn btn-primary question5" style="width:100%;">
-								<input type="checkbox" id="left-item" style="display:none" class="check" name="tagBase" value="GREEN"/> 녹차
-					    </label>      
-                    </div>
-                    
-                      <div class="finder_choice col-md-3 col-xs-3">
-                      <img src="resource/imgUpload/finder/herb.png" class="img-responsive  img-radio ul_li_center"
-                        style="height: 200px; ">
-                       <label class="btn btn-primary question5" style="width:100%;">
-								<input type="checkbox" id="left-item" style="display:none" class="check" name="tagBase" value="HERB"/> 허브차
-					    </label>      
-                    </div>
-                    
-                      <div class="finder_choice col-md-3 col-xs-3">
-                      <img src="resource/imgUpload/finder/etc.jpg" class="img-responsive  img-radio ul_li_center"
-                        style="height: 200px; ">
-                       <label class="btn btn-primary question5" style="width:100%;">
-								<input type="checkbox" id="left-item" style="display:none" class="check" name="tagBase" value="ETC"/> 그외
-					    </label>      
-                    </div>
-                    
-                    
-            </div>
-           </div>
-          </div>
-         </div>
-        </div>
 
-        <div>
-          <br>
-        </div>
-
-        <!-- 5번 질문  -->
-        <div id="question5" class="container finder_detail q5">
+        <!-- 4번 질문  -->
+        <div id="question4" class="container finder_detail q4">
           <div class="contact_form bg_white wow fadeInUp" data-wow-delay=".1s">
-            <div class="finder_inner box" id="finder_detail05">
+            <div class="finder_inner box" id="finder_detail04">
               <div class="finder_content">
                 <div class="row">
                 
@@ -701,15 +653,16 @@
 	</section>
     <!-- </form> -->
    
-   	<div class="containerResult">
+      <div class="container finder_result">
           <div class="popup-wrap" id="popup">
             <div class="popup">
-              <div class="popup-body">
+                <div class="popup-body">
                 <div class="body-content">
-                  <div class="body-titlebox">
-                    <h1>티 파인더가 고객님께 추천하는 차</h1>
+                  <div class="body-titlebox" >
+                    <h1>티 파인더가 고객님께 추천하는 차</h1>                                         
                   </div>
-                  <div class="body-contentbox" id="modalResult">
+                  
+                  <div class="body-contentbox" id="modalResult" style="margin-top: 50px;">
 					
 	              
              
@@ -717,14 +670,17 @@
                   </div>
 
 
+               
                 </div>
-              </div>
+                </div>
+              
               <div class="popup-foot">
                 <span class="pop-btn close" id="close" onclick="location.href='tea_finder.do'">닫기</span>
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        
       
 <!--         결과 창
         <div class="container finder_result">

@@ -17,15 +17,12 @@
 	
 		<select id="getTeaFinderList" resultType="shop">
 		<![CDATA[
-		SELECT TEA_NAME, TEA_IMG, TEA_INFO, TAG_BASE
+		SELECT TEA_ID, TEA_NAME, TEA_IMG, TAG_BASE
 		FROM TEA
 		WHERE 1=1
 		]]>
 		<if test="tagCaff != null and tagCaff != ''">
 			AND TAG_CAFF LIKE '%'||#{tagCaff}||'%'
-		</if>
-		<if test="tagBase != null and tagBase != ''">
-			AND TAG_BASE LIKE '%'||#{tagBase}||'%'
 		</if>
 		<if test="tagUser != null and tagUser != ''">
 			AND TAG_USER LIKE '%'||#{tagUser}||'%'

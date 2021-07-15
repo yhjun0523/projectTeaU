@@ -39,6 +39,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">   
 
+<style>
+ @font-face {
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+ @font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font {
+ font-family: 'InfinitySans-RegularA1';
+}
+.fontA {
+font-family: 'twayair';
+}
+
+</style>
+
 </head>
 
 
@@ -80,22 +103,22 @@
                 <div class="about_content">
                   <div class="section_title text-uppercase">
                     <h2 class="small_title wow fadeInUp" data-wow-delay=".1s"><i class="fas fa-coffee"></i> Tea finder</h2>
-                    <h3 class="big_title wow fadeInUp" data-wow-delay=".2s">
-                      티 파인더로 차 취향을 찾아보세요!
+                    <h3 class="big_title wow fadeInUp font" data-wow-delay=".2s">
+                      티 파인더로 차 취향을 <br>찾아보세요!
                     </h3>
                   </div>
-                  <p class="wow fadeInUp" data-wow-delay=".3s">
-                    취향을 파악해서 딱 맞는 차를 추천해드릴게요
+                  <p class="wow fadeInUp" data-wow-delay=".3s" style="margin-bottom: 50px;">
+                    취향을 파악해서 딱 맞는 차를 추천해드릴게요.
                   </p>
                   <ul class="about_info ul_li_block">
                     <li class="wow fadeInUp" data-wow-delay=".4s">
-                      <h4 class="text-uppercase"><i class="fas fa-check"></i>평소에 물을 많이 마시는 편인가요? </h4>
+                      <h4 style="font-family: 'twayair'; font-weight:10; color:#fd6c44; font-size:18px;" class="text-uppercase"><i class="fas fa-check"></i>평소에 물을 많이 마시는 편인가요? </h4>
                       <p class="mb-0">
                         분위기 있게 즐길 수 있는 차를 추천해드릴게요. <br>
                       </p>
                     </li>
                     <li class="wow fadeInUp" data-wow-delay=".5s">
-                      <h4 class="text-uppercase"><i class="fas fa-check"></i>물 대신 마실 차를 찾으시나요?</h4>
+                      <h4 style="font-family: 'twayair'; font-weight:10; color:#fd6c44; font-size:18px;" class="text-uppercase"><i class="fas fa-check"></i>물 대신 마실 차를 찾으시나요?</h4>
                       <p class="mb-0"> 
                         심심한 물 대신 마실 수 있는 향긋하고 고소한 각양각색의 차를 갖추고 있답니다.
                       </p>
@@ -103,7 +126,7 @@
                   </ul>
                   <ul class="btns_group ul_li_center" data-wow-delay=".6s">
                     <li>
-                      <a class="btn btn_primary" href="tea_finder_detail.do">티 파인더</a>
+                      <a class="btn btn_primary" href="tea_finder.do">티 파인더</a>
                     </li>
                     <li>
                     </li>
@@ -116,6 +139,8 @@
         </section>
         <!-- about_section - end
               ================================================== -->
+
+
 
   <!-- introduce_section - start
         ================================================== -->
@@ -136,11 +161,11 @@
               <div class="item_content">
                 <div class="section_title text-uppercase">
                   <h3 class="small_title"><i class="fas fa-coffee"></i> Introduce</h3>
-                  <h4 class="big_title">
+                  <h4 class="big_title font">
                     취향에 맞는 차로 <br>힐링하세요.
                   </h4>
                 </div>
-                <p>                 
+                <p style="font-size:18px;">                 
                   이제 무엇을 마셔야 하나? 고민하지마세요.<br>
                   40여 가지 다양한 차를 내 취향에 맞게 매 달 선물받는 기분을 느껴보세요:) <br>
                   <br>
@@ -149,7 +174,7 @@
                   단계별 구독 시스템을 통해 차의 맛과 깊이를 알아갈 수 있게 준비했습니다!
                 </p>
                 <div class="testimonial_admin text-uppercase">
-                  <h5 class="admin_name">힐링이 필요할 땐</h5>
+                  <h5 class="admin_name font">힐링이 필요할 땐</h5>
                   <span class="admin_title">Tea U</span>
                 </div>
               </div>

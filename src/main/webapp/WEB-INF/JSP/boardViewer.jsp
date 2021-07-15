@@ -275,6 +275,15 @@
                 }); --%>
 
               </script>
+                  <style>
+      .wrap_space {
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+
+      }
+
+    </style>
+              
             </head>
 
             <body>
@@ -282,7 +291,7 @@
 
                 <!-- details_section - start
         ================================================== -->
-                <section class="details_section blog_details sec_ptb_120 bg_default_gray">
+                <section class="details_section blog_details sec_ptb_120">
                   <div class="container">
                     <div class="row justify-content-lg-between justify-content-md-center justify-content-sm-center">
 
@@ -354,8 +363,9 @@
                                     <input type="hidden" name="replyId" value="${reply.replyId}">
 
                                     <c:if test="${member.memberId !=null and member.memberId eq reply.replyWriter}">
-                                      <button class="btn btn_primary text-uppercase" type="submit"
-                                        name="commentInsertBtn">댓글삭제</button>
+                                      <button type="submit"
+                                        name="commentInsertBtn" style="border-radius:4px; color:white; background-color:#fd6c44; width: 70px; height: 35px">댓글삭제</button>
+                                        
                                     </c:if>
                                     <hr style="height: 1px; background-color: black;">
                                   </div>

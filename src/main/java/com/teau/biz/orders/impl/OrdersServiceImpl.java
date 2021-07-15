@@ -8,32 +8,27 @@ import org.springframework.stereotype.Service;
 import com.teau.biz.orders.OrdersService;
 import com.teau.biz.orders.OrdersVO;
 
-@Service("orderService")
+@Service("ordersService")
 public class OrdersServiceImpl implements OrdersService {
-	
-	@Autowired
-	private OrdersDAOMybatis OrdersDAO;
+   
+   @Autowired
+   private OrdersDAOMybatis OrdersDAO;
 
-	public OrdersServiceImpl() {
-	
-	}
+   public OrdersServiceImpl() {
+   
+   }
 
-	@Override
-	public List<OrdersVO> getProList(OrdersVO vo) {
-		System.out.println("OrderDAO.getProIdList ServiceImpl");
-		return OrdersDAO.getProIdList(vo);
-	}
 
-	@Override
-	public void insertOrders(OrdersVO vo) {
-		System.out.println("OrderDAO.insertOrder Service");
-		OrdersDAO.insertOrders(vo);
-	}
+   @Override
+   public void insertOrders(OrdersVO vo) {
+      System.out.println("OrderDAO.insertOrder Service");
+      OrdersDAO.insertOrders(vo);
+   }
 
-	@Override
-	public OrdersVO getOrders(OrdersVO vo) {
-		System.out.println("OrdersDAO.getOrders Service");
-		return OrdersDAO.getOrders(vo);
-	}
+   @Override
+   public List<OrdersVO> getOrdersList(OrdersVO vo) {
+      System.out.println("OrdersDAO.getOrders Service");
+      return OrdersDAO.getOrdersList(vo);
+   }
 
 }

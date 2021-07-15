@@ -27,5 +27,6 @@ public class ShopVO {
 	private String tagBlend;
 	private String tagDrink;
 	private MultipartFile uploadFile;
+	private int proCnt;
 
 }

@@ -30,6 +30,7 @@ public class MemberVO {
 	private String memberRole;
 	// 페이징 관련
     private int pageNum = 1; //페이지 번호
+    
     private int amount = 10; //페이지당 데이터 갯수
 
 

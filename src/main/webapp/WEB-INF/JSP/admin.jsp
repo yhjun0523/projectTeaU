@@ -68,38 +68,41 @@
 		</div>
 		<br>
 		<div class="container">
-			<div class="contact_form bg_white wow fadeInUp" data-wow-delay=".1s">
-				<!-- 회원 정보 불러오기 -->
-				<!-- <form action="#"> -->
-
+			<div class="contact_form bg_white" data-wow-delay=".1s"
+				style="margin-top: 100px;">
 				<div class="hi container">
-					<h3>회원관리</h3>
+					<h3>
+						<i class="fal fa-user" style="font-weight: bold;"> 회원관리</i>
+					</h3>
 					<div class="row" style="display: flex; align-items: center;">
 						<div class="col-md-12 col-lg-12" style="align-items: center">
-							<a class="btn btn_primary text-uppercase" href="getMemberList.do">회원
-								관리</a>
+							<a class="btn btn_primary text-uppercase" href="getMemberList.do"
+								style=text-align:justify;>   회원
+                        관리</a>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="contact_form bg_white" data-wow-delay=".1s"
+				style="margin-top: 100px;">
 				<div class="hi container">
-					<h3>상품관리</h3>
+					<h3>
+						<i class="fal fa-shopping-bag" style=""></i> 상품관리
+					</h3>
 					<div class="row" style="display: flex; align-items: center;">
-						<div class="col-md-12 col-lg-12" style="align-items:center">
-							<a class="btn btn_primary text-uppercase" href="shopSeason.do">#계절별 상품
-								관리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a class="btn btn_primary text-uppercase" href="shopUser.do">#사용자별 상품
-								관리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a class="btn btn_primary text-uppercase" href="shopBlend.do">#디카페인 상품
-								관리</a>
+						<div class="col-md-12 col-lg-12" style="align-items: center">
+							<a class="btn btn_primary text-uppercase" href="shopSeason.do">#계절별
+								상품 관리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a class="btn btn_primary text-uppercase" href="shopUser.do">#사용자별
+								상품 관리</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a class="btn btn_primary text-uppercase" href="shopBlend.do">#베이스
+								상품 관리</a>
 						</div>
 					</div>
 				</div>
 
-
-				<!-- <div class="text-center">
-                  <button type="submit" class="btn btn_primary text-uppercase">Send massage</button>
-                </div> -->
-				<!-- </form> -->
 			</div>
 		</div>
 

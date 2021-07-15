@@ -12,51 +12,57 @@ import com.teau.biz.shop.ShopVO;
 
 @Repository
 public class ShopDAOMybatis {
-	@Autowired
-	private SqlSessionTemplate mybatis;
+   @Autowired
+   private SqlSessionTemplate mybatis;
 
-	public void insertShop(ShopVO vo, List<String> fileNames) {
-		mybatis.insert("ShopDAO.insertShop", vo);
-		int teaId = mybatis.selectOne("ShopDAO.selectTeaId");
-		for (int i = 0; i < fileNames.size(); i++) {
-			Map<String, Object> paramMap = new HashMap<String, Object>();
-			paramMap.put("teaId", teaId);
-			paramMap.put("imgId", i); // imgId 기본 키로 추가 
-			paramMap.put("teaImg", fileNames.get(i));
-			
-			mybatis.insert("ShopDAO.insertShopFile", paramMap);
-		}
-	}
+   public void insertShop(ShopVO vo, List<String> fileNames) {
+      mybatis.insert("ShopDAO.insertShop", vo);
+      int teaId = mybatis.selectOne("ShopDAO.selectTeaId");
+      for (int i = 0; i < fileNames.size(); i++) {
+         Map<String, Object> paramMap = new HashMap<String, Object>();
+         paramMap.put("teaId", teaId);
+         paramMap.put("imgId", i); // imgId 기본 키로 추가 
+         paramMap.put("teaImg", fileNames.get(i));
+         
+         mybatis.insert("ShopDAO.insertShopFile", paramMap);
+      }
+   }
 
-	public void updateShop(ShopVO vo, List<String> fileNames) {
-		mybatis.update("ShopDAO.updateShop", vo);
-		int teaId = mybatis.selectOne("ShopDAO.selectTeaId");
-		for (int i = 0; i < fileNames.size(); i++) {
-			Map<String, Object> paramMap = new HashMap<String, Object>();
-			paramMap.put("teaId", teaId);
-			paramMap.put("imgId", i);
-			paramMap.put("teaImg", fileNames.get(i));
+   public void updateShop(ShopVO vo, List<String> fileNames) {
+      mybatis.update("ShopDAO.updateShop", vo);
+      
+      int teaId = vo.getTeaId();
+      System.out.println("teaId:"+teaId);
+      // int teaId = mybatis.selectOne("ShopDAO.selectTeaId");
+      
+      mybatis.delete("ShopDAO.deleteShopFile", teaId);
+      
+      for (int i = 0; i < fileNames.size(); i++) {
+         Map<String, Object> paramMap = new HashMap<String, Object>();
+         paramMap.put("teaId", teaId);
+         paramMap.put("imgId", i);
+         paramMap.put("teaImg", fileNames.get(i));
 
-			mybatis.update("ShopDAO.updateShopFile", paramMap);
-		}
-	}
+         mybatis.update("ShopDAO.insertShopFile", paramMap);
+      }
+   }
 
-	public void deleteShop(ShopVO vo) {
-		mybatis.delete("ShopDAO.deleteShop", vo);
-		mybatis.delete("ShopDAO.deleteShopFile", vo); 
-	}
+   public void deleteShop(ShopVO vo) {
+      mybatis.delete("ShopDAO.deleteShop", vo);
+      mybatis.delete("ShopDAO.deleteShopFile", vo); 
+   }
 
-	public ShopVO getShop(ShopVO vo) {
-		return (ShopVO) mybatis.selectOne("ShopDAO.getShop", vo);
+   public ShopVO getShop(ShopVO vo) {
+      return (ShopVO) mybatis.selectOne("ShopDAO.getShop", vo);
 
-	}
+   }
 
-	public List<ShopVO> getShopList() {
-		return mybatis.selectList("ShopDAO.getShopList");
-	}
+   public List<ShopVO> getShopList() {
+      return mybatis.selectList("ShopDAO.getShopList");
+   }
 
-	public List<ShopVO> getImg(ShopVO vo) {
-		return mybatis.selectList("ShopDAO.getImg", vo);
-	}
+   public List<ShopVO> getImg(ShopVO vo) {
+      return mybatis.selectList("ShopDAO.getImg", vo);
+   }
 
 }

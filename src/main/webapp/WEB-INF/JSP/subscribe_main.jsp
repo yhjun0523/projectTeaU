@@ -43,29 +43,29 @@
     <main>
       <!-- blog_section - start
         ================================================== -->
-      <section class="blog_section sec_ptb_120" style="background-image: url(assets/images/backgrounds/bg_03.png);">
+      <section class="blog_section sec_ptb_120" style="">
         <div class="container">
 
           <div class="section_title text-uppercase text-center selectTitle">
-            <h3 class="big_title wow fadeInUp" data-wow-delay=".2s">원하시는 구독 종류를 선택해주세요.</h3>
+            <h3 id="subSeed" class="big_title wow fadeInUp" data-wow-delay=".2s">원하시는 구독 종류를 선택해주세요.</h3>
           </div>
 
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="blog_grid wow fadeInUp" data-wow-delay=".1s">
-                <a class="item_image" onclick="loginCheck(id, 'subscribe_seed.do')">
+                <a class="item_image" onclick="loginCheck('subscribe_seed.do')">
                   <img src="assets/images/blog/select_seed.jpg" alt="image_not_found">
                 </a>
                 <div class="item_content">
                   <h3 class="item_title text-uppercase">
-                    <a onclick="loginCheck(id, 'subscribe_seed.do')">
-                      <씨앗구독> (초심자용 구독)
+                    <a onclick="loginCheck('subscribe_seed.do')">
+                         씨앗구독 <!-- (초심자용 구독) -->
                     </a>
                   </h3>
                   <p>
                     우리에게 익숙한 차를 랜덤 박스 형식으로 선물 받아보세요!
                   </p>
-                  <19,000원>
+                  <span style="font-size:24px;">19,900원</span>
                 </div>
 
               </div>
@@ -73,32 +73,32 @@
 
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="blog_grid wow fadeInUp" data-wow-delay=".2s">
-                <a class="item_image" onclick="loginCheck(id, 'subscribe_leaf.do')">
+                <a class="item_image" onclick="loginCheck('subscribe_leaf.do')">
                   <img src="assets/images/blog/select_leaf.jpg" alt="image_not_found">
                 </a>
                 <div class="item_content">
                   <h3 class="item_title text-uppercase">
-                    <a onclick="loginCheck(id, 'subscribe_leaf.do')">
-                      <새싹구독> (중급자용 구독)
+                    <a onclick="loginCheck('subscribe_leaf.do')">
+                      새싹구독 <!-- (중급자용 구독) -->
                     </a>
                   </h3>
                   <p>
                     차를 즐기는 또 다른 방법, 블렌딩 차를 랜덤으로 선물 받아보세요!
                   </p>
-                  <22,000원>
+                    <span style="font-size:24px;">29,900원</span>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="blog_grid wow fadeInUp" data-wow-delay=".3s">
-                <a class="item_image" onclick="loginCheck(id, 'subscribe_tree.do')">
+                <a class="item_image" onclick="loginCheck('subscribe_tree.do')">
                   <img src="assets/images/blog/select_tree.jpg" alt="image_not_found">
                 </a>
                 <div class="item_content">
                   <h3 class="item_title text-uppercase">
-                    <a onclick="loginCheck(id, 'subscribe_tree.do')">
-                      <나무구독> (고급자용 구독)
+                    <a onclick="loginCheck('subscribe_tree.do')">
+                      나무구독 <!-- (고급자용 구독) -->
                     </a>
                   </h3>
                   <p>
@@ -106,7 +106,7 @@
                     <br />
                     &nbsp;
                   </p>
-                  <22,000원>
+                    <span style="font-size:24px;">34,900원</span>
                 </div>
               </div>
             </div>

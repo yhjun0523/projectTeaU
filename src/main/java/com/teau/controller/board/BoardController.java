@@ -2,6 +2,8 @@ package com.teau.controller.board;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,12 +100,13 @@ public class BoardController {
     }
 
     // 글 수정 처리
-    @RequestMapping("/boardUpdate.do")
-    public String updateBoard(BoardVO vo) {
-        System.out.println("글 수정 처리");
+    @RequestMapping(value =  "/boardUpdate.do")
+    public String updateBoard(BoardVO vo) throws UnsupportedEncodingException {
+        System.out.println("글 수정 처리"+vo.getBoardImgm());
+      
         boardService.updateBoard(vo);
-        // return "redirect:boardViewer.do";
-        return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + vo.getBoardImgm();
+        String encodedParam = URLEncoder.encode(vo.getBoardImgm(), "UTF-8");
+        return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + encodedParam;
 
     }
 
@@ -250,6 +253,6 @@ public class BoardController {
     
     @RequestMapping("/faq.do")
     public String faq() {
-    	return "faq";
+       return "faq";
     }
 }

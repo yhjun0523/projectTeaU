@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 
-<!-- header_section - start
-   <%@include file = "header.jsp" %>
+<!-- header_section - start -->
+<jsp:include page="header.jsp"></jsp:include>
+
     <!-- header_section - end -->
 
 
@@ -13,7 +14,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 <title>mypage_edit</title>
@@ -21,7 +22,7 @@
 
 <!-- fraimwork - css include -->
 <link rel="stylesheet" type="text/css"
-	href="assets/css/bootstrap.min.css">
+   href="assets/css/bootstrap.min.css">
 
 <!-- icon font - css include -->
 <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css">
@@ -35,116 +36,149 @@
 
 <!-- popup - css include -->
 <link rel="stylesheet" type="text/css"
-	href="assets/css/magnific-popup.css">
+   href="assets/css/magnific-popup.css">
 
 <!-- jquery-ui - css include -->
 <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
 
 <!-- custom - css include -->
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="assets/css/teau.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <style>
 .container .fas {
-	color: #fd6c44;
+   color: #fd6c44;
 }
 
 .container .fa-user {
-	padding-right: 10%;
+   padding-right: 10%;
 }
 
 .btn {
-	background-color: #fd6c44;
+   background-color: #fd6c44;
 }
+
+.btn-outline-primary:hover {
+   background-color: #eee;
+}
+
+
+#myEdit .table-divider input {
+  
+  /* border: 2px solid #ffdfd7; */
+  border: none;
+  padding: 1px;
+  
+}
+
+input:-internal-autofill-selected {
+   background-color: #ffffff;
+}
+
+
+tdody {
+   height: 25px
+}
+
+th {
+   width: 20%;
+   vertical-align: middle; 
+}
+
 </style>
 
 <script type="text/javascript">
-	$(document).ready(function() {
+   $(document).ready(function() {
 
-		//비밀번호 중복체크
-		$("#alert-success").hide();
-		$("#alert-danger").hide();
-		$("input").keyup(function() {
-			var pwd1 = $("#pwd1").val();
-			var pwd2 = $("#pwd2").val();
-			if (pwd1 != "" || pwd2 != "") {
-				if (pwd1 == pwd2) {
-					$("#alert-success").show();
-					$("#alert-danger").hide();
-					$("#joinsubmit").removeAttr("disabled");
-				} else {
-					$("#alert-success").hide();
-					$("#alert-danger").show();
-					$("#joinsubmit").attr("disabled", "disabled");
-				}
-			}
-		});
+      //비밀번호 중복체크
+      $("#alert-success").hide();
+      $("#alert-danger").hide();
+      $("input").keyup(function() {
+         var pwd1 = $("#pwd1").val();
+         var pwd2 = $("#pwd2").val();
+         if (pwd1 != "" || pwd2 != "") {
+            if (pwd1 == pwd2) {
+               $("#alert-success").show();
+               $("#alert-danger").hide();
+               $("#joinsubmit").removeAttr("disabled");
+            } else {
+               $("#alert-success").hide();
+               $("#alert-danger").show();
+               $("#joinsubmit").attr("disabled", "disabled");
+            }
+         }
+      });
 
-	});
+   });
 </script>
 <script language="JavaScript"
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
-	charset="UTF-8"></script>
+   src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"
+   charset="UTF-8"></script>
 <script charset="utf-8">
-	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-	function sample4_execDaumPostcode() {
-		new daum.Postcode(
-				{
-					oncomplete : function(data) {
-						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+   //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+   function sample4_execDaumPostcode() {
+      new daum.Postcode(
+            {
+               oncomplete : function(data) {
+                  // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-						// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-						var roadAddr = data.roadAddress; // 도로명 주소 변수
-						var extraRoadAddr = ''; // 참고 항목 변수
+                  // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                  // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                  var roadAddr = data.roadAddress; // 도로명 주소 변수
+                  var extraRoadAddr = ''; // 참고 항목 변수
 
-						// 법정동명이 있을 경우 추가한다. (법정리는 제외)
-						// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-						if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
-							extraRoadAddr += data.bname;
-						}
-						// 건물명이 있고, 공동주택일 경우 추가한다.
-						if (data.buildingName !== '' && data.apartment === 'Y') {
-							extraRoadAddr += (extraRoadAddr !== '' ? ', '
-									+ data.buildingName : data.buildingName);
-						}
-						// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-						if (extraRoadAddr !== '') {
-							extraRoadAddr = ' (' + extraRoadAddr + ')';
-						}
+                  // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                  // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                  if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                     extraRoadAddr += data.bname;
+                  }
+                  // 건물명이 있고, 공동주택일 경우 추가한다.
+                  if (data.buildingName !== '' && data.apartment === 'Y') {
+                     extraRoadAddr += (extraRoadAddr !== '' ? ', '
+                           + data.buildingName : data.buildingName);
+                  }
+                  // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                  if (extraRoadAddr !== '') {
+                     extraRoadAddr = ' (' + extraRoadAddr + ')';
+                  }
 
-						// 우편번호와 주소 정보를 해당 필드에 넣는다.
-						document.getElementById('sample4_postcode').value = data.zonecode;
-						document.getElementById("sample4_roadAddress").value = roadAddr;
-						document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+                  // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                  document.getElementById('sample4_postcode').value = data.zonecode;
+                  document.getElementById("sample4_roadAddress").value = roadAddr;
+                  //document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+                  // 창닫기
+                  //window.close();
+                  //document.close();
 
-						// 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-						if (roadAddr !== '') {
-							document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-						} else {
-							document.getElementById("sample4_extraAddress").value = '';
-						}
+                  // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+/*                   if (roadAddr !== '') {
+                     document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                  } else {
+                     document.getElementById("sample4_extraAddress").value = '';
+                  }
 
-						var guideTextBox = document.getElementById("guide");
-						// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-						if (data.autoRoadAddress) {
-							var expRoadAddr = data.autoRoadAddress
-									+ extraRoadAddr;
-							guideTextBox.innerHTML = '(예상 도로명 주소 : '
-									+ expRoadAddr + ')';
-							guideTextBox.style.display = 'block';
+                  var guideTextBox = document.getElementById("guide");
+                  // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                  if (data.autoRoadAddress) {
+                     var expRoadAddr = data.autoRoadAddress
+                           + extraRoadAddr;
+                     guideTextBox.innerHTML = '(예상 도로명 주소 : '
+                           + expRoadAddr + ')';
+                     guideTextBox.style.display = 'block';
 
-						} else if (data.autoJibunAddress) {
-							var expJibunAddr = data.autoJibunAddress;
-							guideTextBox.innerHTML = '(예상 지번 주소 : '
-									+ expJibunAddr + ')';
-							guideTextBox.style.display = 'block';
-						} else {
-							guideTextBox.innerHTML = '';
-							guideTextBox.style.display = 'none';
-						}
-					}
-				}).open();
-	}
+                  } else if (data.autoJibunAddress) {
+                     var expJibunAddr = data.autoJibunAddress;
+                     guideTextBox.innerHTML = '(예상 지번 주소 : '
+                           + expJibunAddr + ')';
+                     guideTextBox.style.display = 'block';
+                  } else {
+                     guideTextBox.innerHTML = '';
+                     guideTextBox.style.display = 'none';
+                  } */
+               }
+            }).open();
+   }
 </script>
 
 
@@ -182,10 +216,10 @@
 <!-- contact_section - start
         ================================================== -->
 
-<section class="contact_section sec_ptb_120 bg_default_gray">
-	<!--회원이름&포인트-->
-	<div class="container">
-		<%-- <div class="contact_form bg_white">
+<section class="contact_section sec_ptb_120 bg_default_white">
+   <!--회원이름&포인트-->
+   <div class="container">
+      <%-- <div class="contact_form bg_white">
             <div class="row">
               <div class="offset-md-1 col-md-3">
                 <div class="item_content img-fluid">
@@ -200,93 +234,100 @@
               </div>
             </div> 
           </div>--%>
-	</div>
-	<br>
-	<div class="container">
-		<div class="contact_form bg_white wow fadeInUp" data-wow-delay=".1s">
+   </div>
+   <br>
+   <div class="container">
+      <div id="myEdit" class="contact_form bg_white wow fadeInUp" data-wow-delay=".1s" style="margin: 5%;" >
 
-			<!-- 회원 정보 불러오기 -->
-			<form action="updateMember.do" method="post">
-				<input type="hidden" name="memberId" value="${member.memberId }" />
-				<div class="hi container">
-					<div class="hi section">
-						<form>
-							<div class="row">
-								<div class="col-sm-12">
-									<h3>내 정보</h3>
-									<br>
-									<table class="hi table table-divider">
-										<tbody>
-											<tr>
-												<th class="hi width-xsmall">이름<span
-													class="hi text-danger">*</span></th>
-												<td><input type="text" name="memberName"
-													placeholder="티유" value="${member.memberName }"></td>
-											</tr>
-											<tr>
-												<th class="hi width-xsmall">이메일 주소<span
-													class="hi text-danger">*</span></th>
-												<td><input type="email" name="memberEmail"
-													placeholder="teau@gmail.com" value="${member.memberEmail }"></td>
-											</tr>
-											<tr>
-												<th class="hi width-xsmall">비밀번호<span
-													class="hi text-danger">*</span></th>
-												<td><input type="password" name="memberPass" id="pwd1"
-													placeholder="비밀번호를 입력하세요" value="${member.memberPass }"></td>
-											</tr>
-											<tr>
-												<th class="hi width-xsmall">비밀번호<span
-													class="hi text-danger">*</span></th>
-												<td><input type="password" name="rememberPass"
-													id="pwd2" placeholder="비밀번호 확인"
-													value="${member.memberPass }"></td>
-											</tr>
-											<div class="alert alert-success" id="alert-success">비밀번호가
-												일치합니다.</div>
-											<div class="alert alert-danger" id="alert-danger">비밀번호가
-												일치하지 않습니다.</div>
-											<tr>
-												<th class="hi width-xsmall">전화번호<span
-													class="hi text-danger">*</span></th>
-												<td><input type="text" name="memberPhone"
-													placeholder="010-1111-1111" value="${member.memberPhone }"></td>
-											</tr>
+         <!-- 회원 정보 불러오기 -->
+         <form action="updateMember.do" method="post">
+            <input type="hidden" name="memberId" value="${member.memberId }" />
+            <div class="hi container" >
+               <div class="hi section" >
+                  <form >
+                     <div  class="row" style="  box-shadow:0 0 24px 0 rgb(0 0 0 / 8%); padding:5%">
+                        <div class="col-sm-12">
+                           <h3 style="text-align: center; font-family: 'InfinitySans-RegularA1';">내 정보</h3>
+                           <br>
+                           <table class="hi table table-divider" >
+                              <tbody>
+                                 <tr>
+                                    <th class="hi width-xsmall">이름<span
+                                       class="hi text-danger">*</span></th>
+                                    <td><input type="text" name="memberName"
+                                       placeholder="티유" value="${member.memberName }"></td>
+                                 </tr>
+                                 <tr>
+                                    <th class="hi width-xsmall">이메일 주소<span
+                                       class="hi text-danger">*</span></th>
+                                    <td><input type="email" name="memberEmail"
+                                       placeholder="teau@gmail.com" value="${member.memberEmail }"></td>
+                                 </tr>
+                                 <tr>
+                                    <th class="hi width-xsmall">비밀번호<span
+                                       class="hi text-danger">*</span></th>
+                                    <td><input type="password" name="memberPass" id="pwd1" style="font-family: 'RIDIBatang';"
+                                       placeholder="비밀번호를 입력하세요" value="${member.memberPass }"></td>
+                                 </tr>
+                                 <tr>
+                                    <th class="hi width-xsmall">비밀번호 확인<span
+                                       class="hi text-danger">*</span></th>
+                                    <td><input type="password" name="rememberPass" style="font-family: 'RIDIBatang';"
+                                       id="pwd2" placeholder="비밀번호 확인" 
+                                       value="${member.memberPass }"></td>
+                                 </tr>
+                                 <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+                                 <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+                                 <tr>
+                                    <th class="hi width-xsmall">전화번호<span
+                                       class="hi text-danger">*</span></th>
+                                    <td><input type="text" name="memberPhone"
+                                       placeholder="010-1111-1111" value="${member.memberPhone }" "></td>
+                                 </tr>
 
-											<tr>
-												<th class="hi width-xsmall">주소<span
-													class="hi text-danger">*</span></th>
-												<td><input type="text" name="memberAddress"
-													style="width: 300px" id="sample4_roadAddress" accept-charset="EUC-KR"
-													value="${member.memberAddress }"><button type="button" class="btn-outline-primary"
-												onclick="sample4_execDaumPostcode()">주소검색</button>
-													</td>
+                                 <tr>
+                                    <th class="hi width-xsmall">주소<span class="hi text-danger">*</span>
+                                    
+                                    </th>
+                                    <td>
+                                    <!-- 우편번호 히든  -->
+                                    <input type="hidden" id="sample4_postcode" placeholder="우편번호" accept-charset="EUC-KR" readonly>
+                                       <label for="adress"></label>
+                                       <input type="text" id="sample4_roadAddress" name="memberAddress"
+                                    placeholder="주소를 입력해주세요" style="width:250px;border:none;" accept-charset="EUC-KR" value="${member.memberAddress }" readonly>
+                                    
+                                    <input type="text" name="memberAddress" placeholder="상세주소를 입력해 주세요"
+                                    accept-charset="EUC-KR" style="width:250px;border:none;" value="">
+                                    <button type="button" class="btn-outline-primary"
+                                    onclick="sample4_execDaumPostcode()" style="color:#fd6c44;padding:5px;">주소검색</button>
+                                       
+                                       </td>
 
-											</tr>
+                                 </tr>
 
-											<!-- <tr>
+                                 <!-- <tr>
                                 <th class="hi width-xsmall">최근 로그인</th>
                                 <td>2021-05-27</td>
                               </tr> -->
-										</tbody>
-									</table>
-									<div class="submit_btn" style="text-align: center">
-										<button type="submit" class="btn btn-primary btn-radio">회원정보
-											변경</button>
-									</div>
-								</div>
-							</div>
-					</div>
-			</form>
-		</div>
+                              </tbody>
+                           </table>
+                           <div class="submit_btn" style="text-align: center">
+                              <button type="submit" class="btn btn-primary btn-radio">회원정보
+                                 변경</button>
+                           </div>
+                        </div>
+                     </div>
+               </div>
+         </form>
+      </div>
 
 
-		<!-- <div class="text-center">
+      <!-- <div class="text-center">
                   <button type="submit" class="btn btn_primary text-uppercase">Send massage</button>
                 </div> -->
-		<!-- </form> -->
-	</div>
-	</div>
+      <!-- </form> -->
+   </div>
+   </div>
 </section>
 <!-- contact_section - end
         ================================================== -->
@@ -434,6 +475,7 @@
           </div>
         </div>
       </footer> -->
+       <jsp:include page="footer.jsp"></jsp:include>
 <!-- footer_section - end
       ================================================== -->
 
@@ -457,7 +499,7 @@
 
 <!-- google map - jquery include -->
 <script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk2HrmqE4sWSei0XdKGbOMOHN3Mm2Bf-M&ver=2.1.6"></script>
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk2HrmqE4sWSei0XdKGbOMOHN3Mm2Bf-M&ver=2.1.6"></script>
 <script src="assets/js/gmaps.min.js"></script>
 
 <!-- jquery-ui - jquery include -->
@@ -468,6 +510,10 @@
 
 <!-- custom - jquery include -->
 <script src="assets/js/main.js"></script>
+
+
+
+
 
 </body>
 

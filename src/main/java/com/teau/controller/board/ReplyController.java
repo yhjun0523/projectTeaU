@@ -1,5 +1,7 @@
 package com.teau.controller.board;
 
+import java.net.URLEncoder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +32,9 @@ public class ReplyController {
 
 		// 게시물에 댓글 추가시 업데이트
 		boardService.updateReplyCount(dvo);
-
-		return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + dvo.getBoardImgm();
+		String encodedParam = URLEncoder.encode(dvo.getBoardImgm(), "UTF-8");
+	    return "redirect:/boardViewer.do?boardId=" + dvo.getBoardId() + "&boardImgm=" + encodedParam;
+		
 
 	}
 
@@ -45,7 +48,8 @@ public class ReplyController {
 		boardService.updateReplyCount(dvo);
 		System.out.println(dvo.getBoardImgm());
 
-		return "redirect:/boardViewer.do?boardId=" + vo.getBoardId() + "&boardImgm=" + dvo.getBoardImgm();
+		String encodedParam = URLEncoder.encode(dvo.getBoardImgm(), "UTF-8");
+	    return "redirect:/boardViewer.do?boardId=" + dvo.getBoardId() + "&boardImgm=" + encodedParam;
 	}
 
 }
